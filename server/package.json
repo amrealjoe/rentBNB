@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "start http://localhost:5051 && nodemon index",
+    "start": "nodemon index"
   },
   "keywords": [],
   "author": "",
