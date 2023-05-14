@@ -1,10 +1,13 @@
 import React from 'react'
+import Listing from './components/Listing/Listing'
 
 function App() {
 
   return (
     <div>
-      <h1>Hello World</h1>
+      <h1>
+        <Listing />
+      </h1>
     </div>
   )
 }
