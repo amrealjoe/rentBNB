@@ -1,14 +1,16 @@
 import React from 'react'
-import Listing from './components/Listing/Listing'
+import Home from '@pages/home'
+import {BrowserRouter as Router, Route, Routes, Outlet} from "react-router-dom"
 
 function App() {
 
   return (
-    <div>
-      <h1>
-        <Listing />
-      </h1>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+      <Outlet />
+    </Router>
   )
 }
 
