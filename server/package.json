@@ -1,8 +1,8 @@
 {
-  "name": "Server",
+  "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "indexadd.js",
   "scripts": {
     "dev": "start http://localhost:5051 && nodemon index",
     "start": "nodemon index"
