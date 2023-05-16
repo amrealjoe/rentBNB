@@ -2,18 +2,24 @@ import { Grid } from '@mui/material'
 import React from 'react'
 import Navigation from '@/Navigation'
 import styled from "styled-components"
+import DesktopView from './views/Desktop'
+import MobileView from './views/Mobile'
+import MediaQuery from 'react-responsive'
+import DesktopNav from '@/Navigations/DesktopNav'
+import MobileNav from '@/Navigations/MobileNav'
 
-const SidePane = styled(Grid)``
-const ContentPane = styled(Grid)``
 
 function Home() {
     return (
         <>
-        <Navigation />
-        <Grid container spacing={2}>
-            <SidePane item sm={4} md={4}>Side Pane </SidePane>
-            <ContentPane item sm={8} md={8}>Content Pane </ContentPane>
-        </Grid>
+            <MediaQuery minWidth={992}>
+                <DesktopNav />
+                <DesktopView />
+            </MediaQuery>
+            <MediaQuery maxWidth={991}>
+                <MobileNav />
+                <MobileView />
+            </MediaQuery>
         </>
     )
 }
