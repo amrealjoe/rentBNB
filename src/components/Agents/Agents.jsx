@@ -35,10 +35,10 @@ function Agents() {
         <Container>
             <Header>
                 <Title variant='h5'>Agents</Title>
-                <Searcher data={jsonData} />
+                <Searcher/>
             </Header>
             <CardList>
-
+                this is a text
             </CardList>
             
         </Container>
