@@ -59,6 +59,16 @@ function Search({ data }) {
         setSearchResults(results);
     };
 
+    const fetchImage = async (userId) => {
+        try {
+            const response = await fetch(`https://jsonplaceholder.typicode.com/photos?albumId=${userId}`)
+            const data = await response.json()
+            return data[0].thumbnailUrl
+        } catch (error) {
+            return console.log(error)
+        }
+    };
+
     return (
         <Container>
             <Input
@@ -81,7 +91,13 @@ function Search({ data }) {
             />
             <ul>
                 {searchResults.map((item) => (
-                    <li key={item.id}>{item.name}</li>
+                    <li key={item.id}>
+                        <span>{item.name}</span>
+                        <img
+                            src={fetchImage(item.id)}
+                            alt={`Thumbnail for ${item.name}`}
+                        />
+                    </li>
                 ))}
             </ul>
         </Container>
