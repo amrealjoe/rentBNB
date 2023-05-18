@@ -28,22 +28,29 @@ const Input = styled(TextField)`
 `
 
 
-function Search({data}) {
+function Search({ data }) {
     const [value, setValue] = useState("")
     const inputRef = useRef("inputRef")
     const [searchQuery, setSearchQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
+    const [jsonData, setJsonData] = useState([]);
 
     const handleChange = (e) => { setValue(e.target.value) }
     const handleFocus = () => { inputRef.current.focus() }
+
+
+    useEffect(() => {
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then((response) => response.json())
+            .then((data) => setJsonData(data))
+            .catch((error) => console.log(error));
+    }, []);
 
     const handleSearch = (event) => {
         const query = event.target.value.toLowerCase();
         setSearchQuery(query);
 
-        const results = data.filter((item) => {
-            // Perform your search logic here
-            // For example, search within a specific property like 'name'
+        const results = jsonData.filter((item) => {
             return item.name.toLowerCase().includes(query);
         });
 
@@ -59,8 +66,6 @@ function Search({data}) {
                 variant="outlined"
                 value={searchQuery}
                 onChange={handleSearch}
-                // onChange={handleChange}
-                // value={value}
                 fullWidth
                 InputProps={{
                     startAdornment: (
