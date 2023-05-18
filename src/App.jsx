@@ -5,7 +5,7 @@ import { ThemeProvider, createTheme } from '@mui/material'
 
 const theme = createTheme({
   palette: {
-    mode: 'dark',
+    // mode: 'dark',
   }
 })
 function App() {
