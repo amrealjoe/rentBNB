@@ -23,8 +23,20 @@ const CardList = styled.div`
     display: flex;
     flex-direction: column;
 `
+
+const Card = styled.section`
+    display: flex;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #e8e8e8c5;
+    }
+`
 function Agents() {
     const { user } = useContext(withUser)
+
     return (
         <Container>
             <Header>
@@ -32,14 +44,11 @@ function Agents() {
                 <Searcher />
             </Header>
             <CardList>
-                <ul>
-                    {
-                        user.map((item) => (
-                            <li key={item.id}>{item.name}</li>
-                        ))
-                    }
-                </ul>
-
+                {
+                    user.map((item) => (
+                        <Card key={item.id}>{item.name}</Card>
+                    ))
+                }
             </CardList>
 
         </Container>
