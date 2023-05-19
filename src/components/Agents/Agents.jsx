@@ -1,4 +1,6 @@
-import { Typography } from '@mui/material'
+import { Avatar, Typography } from '@mui/material'
+import MuiAvatar from '@mui/material/Avatar'
+
 import React, { useContext, useEffect, useState } from 'react'
 import { styled } from 'styled-components'
 import Search from './Search'
@@ -29,11 +31,15 @@ const Card = styled.section`
     padding: 8px;
     border-radius: 8px;
     cursor: pointer;
+    gap: 6px;
+    align-items: center;
 
     &:hover {
         background-color: #e8e8e8c5;
     }
 `
+
+
 function Agents() {
     const { user } = useContext(withUser)
 
@@ -46,7 +52,10 @@ function Agents() {
             <CardList>
                 {
                     user.map((item) => (
-                        <Card key={item.id}>{item.name}</Card>
+                        <Card key={item.id}>
+                            <Avatar size="large" src='/' alt={item.name} />
+                            {item.name}
+                        </Card>
                     ))
                 }
             </CardList>
