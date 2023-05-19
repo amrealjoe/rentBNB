@@ -1,8 +1,9 @@
 import { Typography } from '@mui/material'
-import React, {useEffect, useState} from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { styled } from 'styled-components'
 import Search from './Search'
 import Searcher from './services/Searcher'
+import withUser from '@contexts/ProvideUser'
 
 const Container = styled.div`
     padding: 14px;
@@ -22,35 +23,25 @@ const CardList = styled.div`
     display: flex;
     flex-direction: column;
 `
-
-const jsonData = [
-    { id: 1, name: 'John Doe' },
-    { id: 2, name: 'Jane Smith' },
-    // ...
-];
-
-
 function Agents() {
-    const [flag, setFlag] = useState(false)
-    const [jsonData, setJsonData] = useState([]);
-
-        useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/users')
-            .then((response) => response.json())
-            .then((data) => setJsonData(data))
-            .catch((error) => console.log(error));
-    }, []);
-
+    const { user } = useContext(withUser)
     return (
         <Container>
             <Header>
                 <Title variant='h5'>Agents</Title>
-                <Searcher/>
+                <Searcher />
             </Header>
             <CardList>
-                this is a text
+                <ul>
+                    {
+                        user.map((item) => (
+                            <li key={item.id}>{item.name}</li>
+                        ))
+                    }
+                </ul>
+
             </CardList>
-            
+
         </Container>
     )
 }
