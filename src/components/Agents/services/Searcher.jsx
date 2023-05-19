@@ -1,11 +1,12 @@
 import { SearchRounded, Clear } from '@mui/icons-material'
-import { InputAdornment, TextField } from '@mui/material'
+import { InputAdornment, TextField, Typography } from '@mui/material'
 import React, { useEffect, useRef, useState } from 'react'
 import { styled } from 'styled-components'
 
 
 const Container = styled.div`
     margin: 12px;
+    position: relative;
 `
 
 const Input = styled(TextField)`
@@ -27,6 +28,35 @@ const Input = styled(TextField)`
     }
 `
 
+const Section = styled.section`
+    position: absolute;
+    background-color: white;
+    min-width: 100%;
+    min-height: 100vh;
+
+`
+
+const Block = styled.section`
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+`
+
+const Image = styled.img`
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: thin solid red;
+    margin-right: 12px;
+    overflow: hidden;
+`
+
+const Name = styled(Typography)`
+    && {
+
+    }
+`
+
 
 
 
@@ -36,8 +66,11 @@ function Search({ data }) {
     const [searchQuery, setSearchQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     const [jsonData, setJsonData] = useState([]);
+    const [flag, setFlag] = useState(false)
 
-    const handleChange = (e) => { setValue(e.target.value) }
+    const handleChange = (e) => {
+        setValue(e.target.value)
+    }
     const handleFocus = () => { inputRef.current.focus() }
 
 
@@ -49,6 +82,7 @@ function Search({ data }) {
     }, []);
 
     const handleSearch = (event) => {
+        setFlag(true)
         const query = event.target.value.toLowerCase();
         setSearchQuery(query);
 
@@ -89,17 +123,21 @@ function Search({ data }) {
                     ),
                 }}
             />
-            <ul>
-                {searchResults.map((item) => (
-                    <li key={item.id}>
-                        <span>{item.name}</span>
-                        <img
-                            src={fetchImage(item.id)}
-                            alt={`Thumbnail for ${item.name}`}
-                        />
-                    </li>
-                ))}
-            </ul>
+            {
+                flag && (
+                    <Section>
+                        {searchResults.map((item) => (
+                            <Block key={item.id}>
+                                <Image
+                                    src={fetchImage(item.id)}
+                                    alt={`Thumbnail for ${item.name}`} />
+                                <Name variant='subtitle1'>{item.name}</Name>
+                            </Block>
+                        ))}
+                    </Section>
+                )
+            }
+
         </Container>
     )
 }
