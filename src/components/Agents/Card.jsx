@@ -1,63 +1,88 @@
-import { Typography } from '@mui/material'
-import MuiAvatar from '@mui/material/Avatar'
-import React from 'react'
+import { Avatar, Typography } from '@mui/material'
+import MuiIconButton from '@mui/material/IconButton'
+import React, { useContext } from 'react'
 import { styled } from 'styled-components'
-import SendText from './SendText'
-import VideoCall from './VideoCall'
+import withUser from '@contexts/ProvideUser'
+import { ChatBubble, VideoCall } from '@mui/icons-material'
+import withUtils from '@contexts/ProvideUtils'
+
 
 const Container = styled.section`
-    border-radius: 12px;
-    background-color: #f4f3f3;
-    display:flex;
-    padding: 2px;
-    box-sizing: border-box;
-    margin: 3px;
+    display: flex;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    gap: 6px;
     align-items: center;
-`
 
-const Avatar = styled(MuiAvatar)`
-    && {
-        height: 45px;
-        width: 45px;
+    &:hover {
+        background-color: #e8e8e8c5;
     }
-`
 
-const Online = styled.span`
-    display: inline-block;
-    overflow: hidden;
-    border-radius: 50%;
-    border: 4px solid #11af26;
-`
-
-const Offline = styled(Online)`
-    border-color: #f0bd03;
-`
-const Name = styled(Typography)`
-    && {
-        font-size: small;
+    &:hover > :nth-child(3) {
+        display: flex;
+    }
+    & > :nth-child(3) {
+        display: none;
     }
 `
 
 const Actions = styled.section`
     display: flex;
-    align-items: center;
     margin-left: auto;
+    gap: 6px;
+
+
+    
 `
 
+const IconButton = styled(MuiIconButton)`
+    && {
+        background-color: #dedddd;
+    }
+`
 
+const Content = styled.section`
+    display: flex;
+    flex-direction: column;
+`
 
-function Card() {
+const Info = styled(Typography)`
+    && {
+        color: #606770;
+    }
+`
+
+function Card(props) {
+    const { details } = props
+    
+    const fetchImage = async (userId) => {
+        try {
+            const response = await fetch(`https://jsonplaceholder.typicode.com/photos?albumId=${userId}`)
+            const data = await response.json()
+            return data[0].thumbnailUrl
+        } catch (error) {
+            return console.log(error)
+        }
+    };
+
     return (
-        <Container>
-            <Offline>
-                <Avatar />
-            </Offline>
-            <Name variant='h2'>
-                Timothy T. Joe
-            </Name>
+        <Container key={details.id}>
+            <Avatar size="large" src={fetchImage(details.id)} alt={details.name} />
+            <Content>
+                <Typography variant='subtitle1'> {details.name} </Typography>
+                <Info variant='body' fontSize={"small"}>
+                    {details.id * details.id} properties &#8226; Lives {details.address.city}
+                </Info>
+            </Content>
+
             <Actions>
-                <SendText color="primary" />
-                <VideoCall />
+                <IconButton>
+                    <ChatBubble />
+                </IconButton>
+                <IconButton>
+                    <VideoCall />
+                </IconButton>
             </Actions>
         </Container>
     )

@@ -1,8 +1,10 @@
 import { SearchRounded, Clear } from '@mui/icons-material'
-import { InputAdornment, TextField, Typography } from '@mui/material'
+import { Avatar, InputAdornment, TextField, Typography } from '@mui/material'
 import React, { useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { styled } from 'styled-components'
 import withUser from '@contexts/ProvideUser'
+import withUtils from '@contexts/ProvideUtils'
+import Card from '../Card'
 
 
 const Container = styled.div`
@@ -63,37 +65,26 @@ const Name = styled(Typography)`
 
 function Searcher({ data }) {
     const { user } = useContext(withUser)
+    const { flag, setFlag } = useContext(withUtils)
     const inputRef = useRef("inputRef")
     const [searchQuery, setSearchQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
-    const [flag, setFlag] = useState(false)
+    const [value, setValue] = useState("")
 
     const handleFocus = () => { inputRef.current.focus() }
-
-    console.log(user)
+    if (!value) {setFlag(false)}
 
     const handleSearch = (event) => {
         setFlag(true)
+        setValue(event.target.value)
         const query = event.target.value.toLowerCase();
         setSearchQuery(query);
-
         const results = user.filter((item) => {
             return item.name.toLowerCase().includes(query);
         });
 
         setSearchResults(results);
     };
-
-    const fetchImage = async (userId) => {
-        try {
-            const response = await fetch(`https://jsonplaceholder.typicode.com/photos?albumId=${userId}`)
-            const data = await response.json()
-            return data[0].thumbnailUrl
-        } catch (error) {
-            return console.log(error)
-        }
-    };
-
 
     return (
         <Container>
@@ -119,12 +110,7 @@ function Searcher({ data }) {
                 flag && (
                     <Section>
                         {searchResults.map((item) => (
-                            <Block key={item.id}>
-                                <Image
-                                    src={fetchImage(item.id)}
-                                    alt={`Thumbnail for ${item.name}`} />
-                                <Name variant='subtitle1'>{item.name}</Name>
-                            </Block>
+                            <Card key={item.id} details={item} />
                         ))}
                     </Section>
                 )

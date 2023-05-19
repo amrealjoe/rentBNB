@@ -1,4 +1,4 @@
-import { Avatar,  Typography } from '@mui/material'
+import { Avatar, Typography } from '@mui/material'
 import MuiAvatar from '@mui/material/Avatar'
 import MuiIconButton from '@mui/material/IconButton'
 import React, { useContext, useEffect, useState } from 'react'
@@ -7,6 +7,7 @@ import Search from './Search'
 import Searcher from './services/Searcher'
 import withUser from '@contexts/ProvideUser'
 import { ChatBubble, VideoCall } from '@mui/icons-material'
+import withUtils from '@contexts/ProvideUtils'
 
 const Container = styled.div`
     padding: 14px;
@@ -28,6 +29,10 @@ const CardList = styled.div`
     max-height: 460px;
     overflow-y: auto;
 
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
 `
 
 const Card = styled.section`
@@ -41,33 +46,23 @@ const Card = styled.section`
     &:hover {
         background-color: #e8e8e8c5;
     }
-`
 
-const Actions = styled.section`
-    display: flex;
-    margin-left: auto;
-    gap: 6px;
-    
-`
-
-const IconButton = styled(MuiIconButton)`
-    && {
-        background-color: #dedddd;
+    &:hover > :nth-child(3) {
+        display: flex;
+    }
+    & > :nth-child(3) {
+        display: none;
     }
 `
 
 
+
+
+
 function Agents() {
     const { user } = useContext(withUser)
-    const [isHovered, setIsHovered] = useState(false);
-
-    const handleMouseEnter = () => {
-        setIsHovered(true);
-    };
-
-    const handleMouseLeave = () => {
-        setIsHovered(false);
-    };
+    const { flag } = useContext(withUtils)
+    console.log(user)
 
     return (
         <Container>
@@ -76,24 +71,13 @@ function Agents() {
                 <Searcher />
             </Header>
             <CardList>
-                {
-                    user.map((item) => (
-                        <Card key={item.id}>
-                            <Avatar size="large" src='/' alt={item.name} />
-                            <span>
-                            {item.name}
-                            </span>
 
-                            <Actions>
-                                <IconButton>
-                                    <ChatBubble />
-                                </IconButton>
-                                <IconButton>
-                                    <VideoCall />
-                                </IconButton>
-                            </Actions>
-                        </Card>
-                    ))
+                {
+                    !flag && (
+                        user.map((item) => (
+                            <Card key={item.id} details={item} />
+                        ))
+                    )
                 }
             </CardList>
 
