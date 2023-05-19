@@ -1,6 +1,6 @@
-import { SearchRounded, Clear } from '@mui/icons-material'
-import { Avatar, InputAdornment, TextField, Typography } from '@mui/material'
-import React, { useCallback, useContext, useEffect, useRef, useState } from 'react'
+import { SearchRounded } from '@mui/icons-material'
+import { InputAdornment, TextField } from '@mui/material'
+import React, { useContext, useRef, useState } from 'react'
 import { styled } from 'styled-components'
 import withUser from '@contexts/ProvideUser'
 import withUtils from '@contexts/ProvideUtils'
@@ -39,31 +39,8 @@ const Section = styled.section`
 
 `
 
-const Block = styled.section`
-    display: flex;
-    align-items: center;
-    margin-top: 8px;
-`
 
-const Image = styled.img`
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: thin solid red;
-    margin-right: 12px;
-    overflow: hidden;
-`
-
-const Name = styled(Typography)`
-    && {
-
-    }
-`
-
-
-
-
-function Searcher({ data }) {
+function Searcher() {
     const { user } = useContext(withUser)
     const { flag, setFlag } = useContext(withUtils)
     const inputRef = useRef("inputRef")

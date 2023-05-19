@@ -1,13 +1,10 @@
-import { Avatar, Typography } from '@mui/material'
-import MuiAvatar from '@mui/material/Avatar'
-import MuiIconButton from '@mui/material/IconButton'
-import React, { useContext, useEffect, useState } from 'react'
+import { Typography } from '@mui/material'
+import React, { useContext } from 'react'
 import { styled } from 'styled-components'
-import Search from './Search'
 import Searcher from './services/Searcher'
 import withUser from '@contexts/ProvideUser'
-import { ChatBubble, VideoCall } from '@mui/icons-material'
 import withUtils from '@contexts/ProvideUtils'
+import Card from './Card'
 
 const Container = styled.div`
     padding: 14px;
@@ -29,33 +26,20 @@ const CardList = styled.div`
     max-height: 460px;
     overflow-y: auto;
 
-    ::-webkit-scrollbar {
-        width: 8px;
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #b2b2b2;
+        border-radius: 10px;
     }
 
 `
-
-const Card = styled.section`
-    display: flex;
-    padding: 8px;
-    border-radius: 8px;
-    cursor: pointer;
-    gap: 6px;
-    align-items: center;
-
-    &:hover {
-        background-color: #e8e8e8c5;
-    }
-
-    &:hover > :nth-child(3) {
-        display: flex;
-    }
-    & > :nth-child(3) {
-        display: none;
-    }
-`
-
-
 
 
 

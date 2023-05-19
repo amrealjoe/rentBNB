@@ -1,10 +1,8 @@
-import { Avatar, Typography } from '@mui/material'
+import { Avatar, Tooltip, Typography } from '@mui/material'
 import MuiIconButton from '@mui/material/IconButton'
-import React, { useContext } from 'react'
+import React from 'react'
 import { styled } from 'styled-components'
-import withUser from '@contexts/ProvideUser'
 import { ChatBubble, VideoCall } from '@mui/icons-material'
-import withUtils from '@contexts/ProvideUtils'
 
 
 const Container = styled.section`
@@ -77,12 +75,16 @@ function Card(props) {
             </Content>
 
             <Actions>
+                <Tooltip title="Send Text">
                 <IconButton>
                     <ChatBubble />
                 </IconButton>
+                </Tooltip>
+                <Tooltip title="Video Call">
                 <IconButton>
                     <VideoCall />
                 </IconButton>
+                </Tooltip>
             </Actions>
         </Container>
     )
