@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material'
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { styled } from 'styled-components'
 import Search from './Search'
 import Searcher from './services/Searcher'
@@ -31,6 +31,16 @@ const jsonData = [
 
 
 function Agents() {
+    const [flag, setFlag] = useState(false)
+    const [jsonData, setJsonData] = useState([]);
+
+        useEffect(() => {
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then((response) => response.json())
+            .then((data) => setJsonData(data))
+            .catch((error) => console.log(error));
+    }, []);
+
     return (
         <Container>
             <Header>

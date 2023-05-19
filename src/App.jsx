@@ -12,12 +12,12 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-        <Outlet />
-      </Router>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+          <Outlet />
+        </Router>
     </ThemeProvider>
   )
 }

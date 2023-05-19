@@ -1,7 +1,8 @@
 import { SearchRounded, Clear } from '@mui/icons-material'
 import { InputAdornment, TextField, Typography } from '@mui/material'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { styled } from 'styled-components'
+import withUser from '@contexts/ProvideUser'
 
 
 const Container = styled.div`
@@ -60,33 +61,23 @@ const Name = styled(Typography)`
 
 
 
-function Search({ data }) {
-    const [value, setValue] = useState("")
+function Searcher({ data }) {
+    const { user } = useContext(withUser)
     const inputRef = useRef("inputRef")
     const [searchQuery, setSearchQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
-    const [jsonData, setJsonData] = useState([]);
     const [flag, setFlag] = useState(false)
 
-    const handleChange = (e) => {
-        setValue(e.target.value)
-    }
     const handleFocus = () => { inputRef.current.focus() }
 
-
-    useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/users')
-            .then((response) => response.json())
-            .then((data) => setJsonData(data))
-            .catch((error) => console.log(error));
-    }, []);
+    console.log(user)
 
     const handleSearch = (event) => {
         setFlag(true)
         const query = event.target.value.toLowerCase();
         setSearchQuery(query);
 
-        const results = jsonData.filter((item) => {
+        const results = user.filter((item) => {
             return item.name.toLowerCase().includes(query);
         });
 
@@ -102,6 +93,7 @@ function Search({ data }) {
             return console.log(error)
         }
     };
+
 
     return (
         <Container>
@@ -142,4 +134,4 @@ function Search({ data }) {
     )
 }
 
-export default Search
+export default Searcher
