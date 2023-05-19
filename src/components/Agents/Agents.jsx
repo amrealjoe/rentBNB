@@ -1,11 +1,12 @@
-import { Avatar, Typography } from '@mui/material'
+import { Avatar,  Typography } from '@mui/material'
 import MuiAvatar from '@mui/material/Avatar'
-
+import MuiIconButton from '@mui/material/IconButton'
 import React, { useContext, useEffect, useState } from 'react'
 import { styled } from 'styled-components'
 import Search from './Search'
 import Searcher from './services/Searcher'
 import withUser from '@contexts/ProvideUser'
+import { ChatBubble, VideoCall } from '@mui/icons-material'
 
 const Container = styled.div`
     padding: 14px;
@@ -24,6 +25,9 @@ const Title = styled(Typography)`
 const CardList = styled.div`
     display: flex;
     flex-direction: column;
+    max-height: 460px;
+    overflow-y: auto;
+
 `
 
 const Card = styled.section`
@@ -39,9 +43,31 @@ const Card = styled.section`
     }
 `
 
+const Actions = styled.section`
+    display: flex;
+    margin-left: auto;
+    gap: 6px;
+    
+`
+
+const IconButton = styled(MuiIconButton)`
+    && {
+        background-color: #dedddd;
+    }
+`
+
 
 function Agents() {
     const { user } = useContext(withUser)
+    const [isHovered, setIsHovered] = useState(false);
+
+    const handleMouseEnter = () => {
+        setIsHovered(true);
+    };
+
+    const handleMouseLeave = () => {
+        setIsHovered(false);
+    };
 
     return (
         <Container>
@@ -54,7 +80,18 @@ function Agents() {
                     user.map((item) => (
                         <Card key={item.id}>
                             <Avatar size="large" src='/' alt={item.name} />
+                            <span>
                             {item.name}
+                            </span>
+
+                            <Actions>
+                                <IconButton>
+                                    <ChatBubble />
+                                </IconButton>
+                                <IconButton>
+                                    <VideoCall />
+                                </IconButton>
+                            </Actions>
                         </Card>
                     ))
                 }
