@@ -67,7 +67,7 @@ function Searcher() {
         <Container>
             <Input
                 ref={inputRef}
-                placeholder='Search Agents'
+                placeholder='Search Agents...'
                 size="small"
                 variant="outlined"
                 value={searchQuery}

@@ -23,11 +23,11 @@ const Title = styled(Typography)`
 const CardList = styled.div`
     display: flex;
     flex-direction: column;
-    max-height: 460px;
+    max-height: 535px;
     overflow-y: auto;
 
     &::-webkit-scrollbar {
-        width: 10px;
+        width: 7px;
     }
 
     &::-webkit-scrollbar-track {
@@ -46,8 +46,6 @@ const CardList = styled.div`
 function Agents() {
     const { user } = useContext(withUser)
     const { flag } = useContext(withUtils)
-    console.log(user)
-
     return (
         <Container>
             <Header>

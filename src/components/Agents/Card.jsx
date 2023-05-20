@@ -10,8 +10,6 @@ const Container = styled.section`
     display: flex;
     padding: 8px;
     border-radius: 8px;
-    /* cursor: pointer; */
-    /* gap: 6px; */
     align-items: center;
     position: relative;
 
