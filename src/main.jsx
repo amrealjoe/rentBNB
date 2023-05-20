@@ -6,11 +6,11 @@ import { ProvideUser } from './contexts/ProvideUser.jsx'
 import { ProvideUtils } from './contexts/ProvideUtils.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>,
+  <React.StrictMode>
     <ProvideUtils>
       <ProvideUser>
         <App />
       </ProvideUser>
     </ProvideUtils>
-  </React.StrictMode>,
+  </React.StrictMode>
 )

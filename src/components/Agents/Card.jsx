@@ -3,6 +3,7 @@ import MuiIconButton from '@mui/material/IconButton'
 import React from 'react'
 import { styled } from 'styled-components'
 import { ChatBubble, VideoCall } from '@mui/icons-material'
+import { useNavigate } from 'react-router-dom'
 
 
 const Container = styled.section`
@@ -53,6 +54,8 @@ const Info = styled(Typography)`
 
 function Card(props) {
     const { details } = props
+    //TODO: Move to utils context
+    const navigate = useNavigate()
     
     const fetchImage = async (userId) => {
         try {
@@ -65,7 +68,9 @@ function Card(props) {
     };
 
     return (
-        <Container key={details.id}>
+        <Container key={details.id}
+            onClick={() => navigate(`agent/${details.username}`)}
+        >
             <Avatar size="large" src={fetchImage(details.id)} alt={details.name} />
             <Content>
                 <Typography variant='subtitle1'> {details.name} </Typography>
