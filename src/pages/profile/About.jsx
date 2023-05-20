@@ -1,5 +1,5 @@
-import { TextsmsRounded, VideoCallRounded } from '@mui/icons-material'
-import { Avatar, Box, Typography } from '@mui/material'
+import { TextsmsRounded, VerifiedRounded, VerifiedUserRounded, VideoCallRounded } from '@mui/icons-material'
+import { Avatar, Box, Typography, Tooltip } from '@mui/material'
 import MuiButton from "@mui/material/Button"
 import React, { useContext, useEffect, useState } from 'react'
 import { styled } from 'styled-components'
@@ -46,11 +46,25 @@ const Button = styled(MuiButton)`
     }
 `
 
+const NameWrapper = styled(Box)`
+    && {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px
+    }
+
+    && svg {
+        /* color: #0846ff */
+        color: #636161;
+    }
+`
+
 function About() {
     const { user, getUserImage } = useContext(withUser)
     const [agent, setAgent] = useState([])
     const location = useLocation()
-    
+
     useEffect(() => {
         const pathname = location.pathname.split("/")
         //get last element in the array
@@ -58,15 +72,20 @@ function About() {
         const filteredUser = user.filter((item) => item.username == username)
         setAgent(filteredUser[0])
     }, [location])
-    
+
     return (
         <Container>
             <Image src={getUserImage(agent.id)} alt={agent.name} />
-            <Typography variant='subtitle1' fontSize={"large"}>{agent?.name}</Typography>
-            <Info variant='body' fontSize={"medium"}>@{agent?.username}</Info><br/>
+            <NameWrapper>
+                <Typography variant='subtitle1' fontSize={"large"}>{agent?.name}</Typography>
+                <Tooltip title="Agent has been varified">
+                    <VerifiedRounded />
+                </Tooltip>
+            </NameWrapper>
+            <Info variant='body' fontSize={"medium"}>@{agent?.username}</Info><br />
             <Info variant='body' fontSize={"medium"}>{agent?.id * agent?.id} Properties &#8226; Lives in {agent?.address?.city} </Info>
             <Actions>
-                <Button color='primary' variant='contained' disableElevation  endIcon={<TextsmsRounded />}>Send Text</Button>
+                <Button color='primary' variant='contained' disableElevation endIcon={<TextsmsRounded />}>Send Text</Button>
                 <Button color='primary' variant='contained' disableElevation endIcon={<VideoCallRounded />}>Video Call </Button>
             </Actions>
         </Container>
