@@ -35,8 +35,11 @@ const CardList = styled.div`
     }
 
     &::-webkit-scrollbar-thumb {
-        background-color: #b2b2b2;
+        background-color: #e8e8e8c5;
         border-radius: 10px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+        background-color: #d7d6d6e2;
     }
 
 `

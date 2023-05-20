@@ -1,6 +1,5 @@
 import { Grid } from '@mui/material'
 import React from 'react'
-import { styled } from 'styled-components'
 import About from './About'
 import Property from './Property'
 import SidePane from '@/Panes/SidePane'
