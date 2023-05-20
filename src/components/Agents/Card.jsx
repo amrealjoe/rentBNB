@@ -10,29 +10,34 @@ const Container = styled.section`
     display: flex;
     padding: 8px;
     border-radius: 8px;
-    cursor: pointer;
-    gap: 6px;
+    /* cursor: pointer; */
+    /* gap: 6px; */
     align-items: center;
+    position: relative;
 
     &:hover {
         background-color: #e8e8e8c5;
     }
 
-    &:hover > :nth-child(3) {
+    &:hover > :nth-child(2) {
         display: flex;
     }
-    & > :nth-child(3) {
+    & > :nth-child(2) {
         display: none;
     }
+`
+const Span = styled.span`
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    flex: 2;
+    cursor: pointer;
 `
 
 const Actions = styled.section`
     display: flex;
     margin-left: auto;
     gap: 6px;
-
-
-    
 `
 
 const IconButton = styled(MuiIconButton)`
@@ -52,11 +57,12 @@ const Info = styled(Typography)`
     }
 `
 
+
 function Card(props) {
     const { details } = props
     //TODO: Move to utils context
     const navigate = useNavigate()
-    
+
     const fetchImage = async (userId) => {
         try {
             const response = await fetch(`https://jsonplaceholder.typicode.com/photos?albumId=${userId}`)
@@ -69,26 +75,31 @@ function Card(props) {
 
     return (
         <Container key={details.id}
-            onClick={() => navigate(`agent/${details.username}`)}
+            
         >
-            <Avatar size="large" src={fetchImage(details.id)} alt={details.name} />
-            <Content>
-                <Typography variant='subtitle1'> {details.name} </Typography>
-                <Info variant='body' fontSize={"small"}>
-                    {details.id * details.id} properties &#8226; Lives {details.address.city}
-                </Info>
-            </Content>
+            <Span onClick={(e) => {
+                e.stopPropagation()
+                navigate(`agent/${details.username}`)
+            }}>
+                <Avatar size="large" src={fetchImage(details.id)} alt={details.name} />
+                <Content>
+                    <Typography variant='subtitle1'> {details.name} </Typography>
+                    <Info variant='body' fontSize={"small"}>
+                        {details.id * details.id} properties &#8226; Lives {details.address.city}
+                    </Info>
+                </Content>
+            </Span>
 
             <Actions>
                 <Tooltip title="Send Text">
-                <IconButton>
-                    <ChatBubble />
-                </IconButton>
+                    <IconButton>
+                        <ChatBubble />
+                    </IconButton>
                 </Tooltip>
                 <Tooltip title="Video Call">
-                <IconButton>
-                    <VideoCall />
-                </IconButton>
+                    <IconButton>
+                        <VideoCall />
+                    </IconButton>
                 </Tooltip>
             </Actions>
         </Container>
