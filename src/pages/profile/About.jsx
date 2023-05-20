@@ -27,7 +27,7 @@ const Image = styled(Avatar)`
 const Info = styled(Typography)`
     && {
         color: #606770;
-        }
+    }
 `
 
 const Actions = styled(Box)`
@@ -55,7 +55,8 @@ const NameWrapper = styled(Box)`
     }
 
     && svg {
-        color: #0846ff;
+        /* color: #0846ff; */
+        color: #dea515;
     }
 `
 

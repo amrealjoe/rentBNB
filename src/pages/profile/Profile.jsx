@@ -3,10 +3,18 @@ import React from 'react'
 import About from './About'
 import Property from './Property'
 import SidePane from '@/Panes/SidePane'
+import styled from "styled-components"
+
+const Container = styled(Grid)`
+  && {
+    max-height: 100vh;
+    overflow: hidden;
+  }
+`
 
 function Profile() {
   return (
-    <Grid container>
+    <Container container>
       <Grid item md={.6}>
         <SidePane />
       </Grid>
@@ -16,7 +24,7 @@ function Profile() {
       <Grid item md={8}>
         <Property />
       </Grid>
-    </Grid>
+    </Container>
   )
 }
 
