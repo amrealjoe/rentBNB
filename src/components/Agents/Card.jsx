@@ -85,7 +85,7 @@ function Card(props) {
                 <Content>
                     <Typography variant='subtitle1'> {details.name} </Typography>
                     <Info variant='body' fontSize={"small"}>
-                        {details.id * details.id} properties &#8226; Lives {details.address.city}
+                        {details.id * details.id} properties &#8226; Lives in {details.address.city}
                     </Info>
                 </Content>
             </Span>
