@@ -10,7 +10,7 @@ function Desktop() {
             <Grid item md={.6}>
                 <SidePane />
             </Grid>
-            <Grid item sm={4} md={4}>
+            <Grid item sm={4} md={3.4}>
                 <Agents />
             </Grid>
             <Grid item sm={8} md={8}>

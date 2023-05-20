@@ -36,6 +36,8 @@ const Actions = styled.section`
     display: flex;
     margin-left: auto;
     gap: 6px;
+    position: absolute;
+    right: 0;
 `
 
 const IconButton = styled(MuiIconButton)`

@@ -11,7 +11,7 @@ function Profile() {
       <Grid item md={.6}>
         <SidePane />
       </Grid>
-      <Grid item md={4}>
+      <Grid item md={3.4}>
         <About />
       </Grid>
       <Grid item md={8}>
