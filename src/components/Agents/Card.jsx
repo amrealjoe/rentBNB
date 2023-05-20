@@ -117,7 +117,14 @@ function Card(props) {
                 <Content>
                     <NameWrapper>
                         <Typography variant='subtitle1'> {details.name} </Typography>
-                        <VerifiedRounded />
+                        {details.verified &&
+                            (
+                                <Tooltip title="Verified">
+                                    <VerifiedRounded />
+                                </Tooltip>
+                            )
+                        }
+
                     </NameWrapper>
                     <Info variant='body' fontSize={"small"}>
                         {details.id * details.id} properties &#8226; Lives in {details.address.city}

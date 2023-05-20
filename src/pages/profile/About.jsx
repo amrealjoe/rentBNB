@@ -77,9 +77,13 @@ function About() {
             <Image src={getUserImage(agent.id)} alt={agent.name} />
             <NameWrapper>
                 <Typography variant='subtitle1' fontSize={"large"}>{agent?.name}</Typography>
-                <Tooltip title="Agent has been varified">
-                    <VerifiedRounded />
-                </Tooltip>
+                {
+                    agent.verified && (
+                        <Tooltip title="Verified">
+                            <VerifiedRounded />
+                        </Tooltip>
+                    )
+                }
             </NameWrapper>
             <Info variant='body' fontSize={"medium"}>@{agent?.username}</Info><br />
             <Info variant='body' fontSize={"medium"}>{agent?.id * agent?.id} Properties &#8226; Lives in {agent?.address?.city} </Info>
