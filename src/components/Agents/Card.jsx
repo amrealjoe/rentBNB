@@ -55,6 +55,23 @@ const Info = styled(Typography)`
     }
 `
 
+const Status = styled.span`
+    position: absolute;
+    right: -2px;
+    bottom: 0;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: solid white;
+    background-color: #5AD539;
+`
+
+const ImageWrapper = styled.span`
+    position: relative;
+    display: inline-block;
+`
+
 
 function Card(props) {
     const { details } = props
@@ -73,13 +90,16 @@ function Card(props) {
 
     return (
         <Container key={details.id}
-            
+
         >
             <Span onClick={(e) => {
                 e.stopPropagation()
                 navigate(`agent/${details.username}`)
             }}>
-                <Avatar size="large" src={fetchImage(details.id)} alt={details.name} />
+                <ImageWrapper>
+                    <Avatar size="large" src={fetchImage(details.id)} alt={details.name} />
+                    <Status />
+                </ImageWrapper>
                 <Content>
                     <Typography variant='subtitle1'> {details.name} </Typography>
                     <Info variant='body' fontSize={"small"}>
