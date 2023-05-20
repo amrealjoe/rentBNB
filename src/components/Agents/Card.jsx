@@ -1,8 +1,8 @@
-import { Avatar, Tooltip, Typography } from '@mui/material'
+import { Avatar, Box, Tooltip, Typography } from '@mui/material'
 import MuiIconButton from '@mui/material/IconButton'
 import React from 'react'
 import { styled } from 'styled-components'
-import { ChatBubble, VideoCall } from '@mui/icons-material'
+import { ChatBubble, VerifiedRounded, VideoCall } from '@mui/icons-material'
 import { useNavigate } from 'react-router-dom'
 
 
@@ -74,6 +74,18 @@ const ImageWrapper = styled.span`
     display: inline-block;
 `
 
+const NameWrapper = styled(Box)`
+    && {
+        display: flex;
+        align-items: center;
+        gap: 6px
+    }
+    && svg {
+        font-size: small;
+        color: #0846ff;
+    }
+`
+
 
 function Card(props) {
     const { details } = props
@@ -103,7 +115,10 @@ function Card(props) {
                     <Status />
                 </ImageWrapper>
                 <Content>
-                    <Typography variant='subtitle1'> {details.name} </Typography>
+                    <NameWrapper>
+                        <Typography variant='subtitle1'> {details.name} </Typography>
+                        <VerifiedRounded />
+                    </NameWrapper>
                     <Info variant='body' fontSize={"small"}>
                         {details.id * details.id} properties &#8226; Lives in {details.address.city}
                     </Info>

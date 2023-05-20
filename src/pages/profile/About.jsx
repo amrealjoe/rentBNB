@@ -55,8 +55,7 @@ const NameWrapper = styled(Box)`
     }
 
     && svg {
-        /* color: #0846ff */
-        color: #636161;
+        color: #0846ff;
     }
 `
 
