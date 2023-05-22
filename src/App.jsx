@@ -13,13 +13,13 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-        <Router>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/agent/:agentname" element={<Profile />} />
-          </Routes>
-          <Outlet />
-        </Router>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/agent/:agentname" element={<Profile />} />
+        </Routes>
+        <Outlet />
+      </Router>
     </ThemeProvider>
   )
 }
