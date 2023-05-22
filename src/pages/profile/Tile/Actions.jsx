@@ -63,7 +63,7 @@ const Name = styled(Box)`
     gap: 4px;
 `
 function Actions(props) {
-    const { agent } = props
+    const { agent } = useContext(withAgent)
 
     return (
         <Container>
@@ -75,10 +75,10 @@ function Actions(props) {
                     </Media>
                     <Content>
                         <Name>
-                            <Typography variant='subtitle1' fontSize={"medium"} lineHeight={1}>{agent?.name }</Typography>
+                            <Typography variant='subtitle1' fontSize={"medium"} lineHeight={1}>{agent?.name}</Typography>
                             <Badge><VerifiedRounded /></Badge>
                         </Name>
-                        <Location variant="body">{agent?.address?.city}</Location>
+                        <Location variant="body"> {agent?.id * agent?.id} Properties &#8226; {agent?.address?.city} </Location>
                     </Content>
                 </Block>
                 <BtnGroup>

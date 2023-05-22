@@ -17,13 +17,13 @@ const Container = styled(Box)`
     
 `
 function Tile(props) {
-    const { agent } = props
+    // const { agent } = useContext(withAgent)
     
     return (
         <Container>
             <Slider />
             <Content />
-            <Actions agent={agent} />
+            <Actions />
         </Container>
     )
 }
