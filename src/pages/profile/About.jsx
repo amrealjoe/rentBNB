@@ -62,7 +62,7 @@ const NameWrapper = styled(Box)`
 `
 
 function About(props) {
-    const { agent } = useContext(withAgent)
+    const { agent } = props
     console.log(agent)
     
     return (

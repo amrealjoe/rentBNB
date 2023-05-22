@@ -29,23 +29,19 @@ function Profile() {
     setAgent(filteredUser[0])
   }, [location])
 
-  const ContextValues = {
-    agent
-  }
+
   return (
-    <withAgent.Provider value={ContextValues}>
-      <Container container>
-        <Grid item md={.6}>
-          <SidePane />
-        </Grid>
-        <Grid item md={3.4}>
-          <About agent={agent} />
-        </Grid>
-        <Grid item md={8}>
-          <Property agent={agent} />
-        </Grid>
-      </Container>
-    </withAgent.Provider>
+    <Container container>
+      <Grid item md={.6}>
+        <SidePane />
+      </Grid>
+      <Grid item md={3.4}>
+        <About agent={agent} />
+      </Grid>
+      <Grid item md={8}>
+        <Property agent={agent} />
+      </Grid>
+    </Container>
   )
 }
 

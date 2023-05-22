@@ -16,9 +16,8 @@ const Container = styled(Box)`
         box-shadow: -1px 2px 4px rgba(43, 43, 43, 0.337);
     
 `
-function Tile() {
-    const { agent } = useContext(withAgent)
-    
+function Tile(props) {
+    const { agent } = props
     return (
         <Container>
             <Slider />

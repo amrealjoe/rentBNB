@@ -24,13 +24,13 @@ const TileRow = styled(Box)`
 `
 
 function Property(props) {
+  const {agent} = props
   return (
     <Container>
       <Filter />
       <TileRow>
-        <Tile />
-        <Tile />
-        <Tile />
+        <Tile agent={agent} />
+        <Tile agent={agent} />
       </TileRow>
     </Container>
   )

@@ -63,7 +63,6 @@ const Name = styled(Box)`
     gap: 4px;
 `
 function Actions(props) {
-
     const { agent } = props
 
     return (
