@@ -4,15 +4,15 @@ import React from 'react'
 
 const Container = styled(Box)`
     padding: 24px;
-    border: thin solid red;
     position: sticky;
+    /* border: thin solid red; */
 `
 function Filter() {
-  return (
-      <Container>
-          
-    </Container>
-  )
+    return (
+        <Container>
+
+        </Container>
+    )
 }
 
 export default Filter

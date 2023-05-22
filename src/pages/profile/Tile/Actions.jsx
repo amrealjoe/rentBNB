@@ -52,11 +52,11 @@ const BtnGroup = styled.div`
 function Actions() {
     return (
         <Container>
-            <Typography variant='subtitle1'>Contact Agent</Typography>
+            <Typography variant='subtitle1' color={"gray"}>Contact Agent</Typography>
             <Flexbox>
                 <Block>
                     <Media>
-                        <Avatar src="/img1.jpg" alt="tj" />
+                        <Avatar src="/profile.jpg" alt="tj" />
                         <Badge><VerifiedRounded /></Badge>
                     </Media>
                     <Typography variant='subtitle1' fontSize={"medium"}>Timothy T. Joe</Typography>
