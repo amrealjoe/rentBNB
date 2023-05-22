@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Tile from './Tile'
 import { Box } from '@mui/material'
 import styled from "@emotion/styled"
 import Filter from './Filter'
+import { withAgent } from './Profile'
 
 const Container = styled(Box)`
     overflow-y: auto;
@@ -17,13 +18,12 @@ const TileRow = styled(Box)`
     gap: 20px;
     padding-left: 20px;
     
-
   & > * {
     flex: 3;
   }
 `
 
-function Property() {
+function Property(props) {
   return (
     <Container>
       <Filter />

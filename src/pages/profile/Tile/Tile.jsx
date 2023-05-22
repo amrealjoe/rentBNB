@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from '@emotion/styled'
 import Slider from "../Slider"
 import { Box } from '@mui/material'
 import Content from './Content'
 import Actions from './Actions'
+import { withAgent } from '../Profile'
 
 const Container = styled(Box)`
         margin: 2px;
@@ -16,11 +17,13 @@ const Container = styled(Box)`
     
 `
 function Tile() {
+    const { agent } = useContext(withAgent)
+    
     return (
         <Container>
             <Slider />
             <Content />
-            <Actions />
+            <Actions agent={agent} />
         </Container>
     )
 }

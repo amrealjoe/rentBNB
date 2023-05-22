@@ -5,6 +5,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { styled } from 'styled-components'
 import withUser from "@contexts/ProvideUser"
 import { useLocation, useSearchParams } from 'react-router-dom'
+import { withAgent } from './Profile'
 
 const Container = styled.div`
     min-height: 100vh;
@@ -60,24 +61,10 @@ const NameWrapper = styled(Box)`
     }
 `
 
-function About() {
-    const { user, getUserImage } = useContext(withUser)
-    const [agent, setAgent] = useState([])
-    const location = useLocation()
-
-    useEffect(() => {
-        const pathname = location.pathname.split("/")
-        //get last element in the array
-        const username = pathname.reverse()[0]
-        //capitalize first letter
-        const capUsername = username.charAt(0).toUpperCase() + username.slice(1)
-        console.log(capUsername)
-        const filteredUser = user.filter((item) => item.username == capUsername)
-        setAgent(filteredUser[0])
-    }, [location])
-
-    //TODO: Add img src attr with getUserImage func
-
+function About(props) {
+    const { agent } = useContext(withAgent)
+    console.log(agent)
+    
     return (
         <Container>
             <Image alt={agent?.name} />

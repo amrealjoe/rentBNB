@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Avatar, Box, Card, Typography } from '@mui/material'
 import MuiButton from '@mui/material/Button'
 import MuiIconButton from '@mui/material/IconButton'
 import { TextsmsRounded, VideoCallRounded, VerifiedRounded } from '@mui/icons-material'
 import { Link } from "react-router-dom"
 import styled from '@emotion/styled'
+import { withAgent } from '../Profile'
 
 const Container = styled(Box)`
         background-color: #F0F2F5;
@@ -61,7 +62,10 @@ const Name = styled(Box)`
     align-items: center;
     gap: 4px;
 `
-function Actions() {
+function Actions(props) {
+
+    const { agent } = props
+
     return (
         <Container>
             <Typography variant='subtitle1' color={"#65676b"} >Contact property agent</Typography>
@@ -72,10 +76,10 @@ function Actions() {
                     </Media>
                     <Content>
                         <Name>
-                            <Typography variant='subtitle1' fontSize={"medium"} lineHeight={1}>Timothy T. Joe</Typography>
+                            <Typography variant='subtitle1' fontSize={"medium"} lineHeight={1}>{agent?.name }</Typography>
                             <Badge><VerifiedRounded /></Badge>
                         </Name>
-                        <Location variant="body">Location</Location>
+                        <Location variant="body">{agent?.address?.city}</Location>
                     </Content>
                 </Block>
                 <BtnGroup>
