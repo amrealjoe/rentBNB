@@ -91,6 +91,10 @@ function Card(props) {
     const { details } = props
     //TODO: Move to utils context
     const navigate = useNavigate()
+    const goto = (url) => {
+        let u = url.toLowerCase()
+        navigate(`agent/${u}`)
+    }
 
     const fetchImage = async (userId) => {
         try {
@@ -108,7 +112,7 @@ function Card(props) {
         >
             <Span onClick={(e) => {
                 e.stopPropagation()
-                navigate(`agent/${details.username}`)
+                goto(details.username)
             }}>
                 <ImageWrapper>
                     <Avatar size="large" src={fetchImage(details.id)} alt={details.name} />

@@ -69,17 +69,22 @@ function About() {
         const pathname = location.pathname.split("/")
         //get last element in the array
         const username = pathname.reverse()[0]
-        const filteredUser = user.filter((item) => item.username == username)
+        //capitalize first letter
+        const capUsername = username.charAt(0).toUpperCase() + username.slice(1)
+        console.log(capUsername)
+        const filteredUser = user.filter((item) => item.username == capUsername)
         setAgent(filteredUser[0])
     }, [location])
 
+    //TODO: Add img src attr with getUserImage func
+
     return (
         <Container>
-            <Image src={getUserImage(agent.id)} alt={agent.name} />
+            <Image alt={agent?.name} />
             <NameWrapper>
                 <Typography variant='subtitle1' fontSize={"large"}>{agent?.name}</Typography>
                 {
-                    agent.verified && (
+                    agent?.verified && (
                         <Tooltip title="Verified">
                             <VerifiedRounded />
                         </Tooltip>
