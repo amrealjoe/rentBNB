@@ -7,18 +7,17 @@ import { Link } from "react-router-dom"
 import styled from '@emotion/styled'
 
 const Container = styled(Box)`
-        /* display: flex; */
         background-color: #F0F2F5;
         border-radius: 12px;
         padding: 8px;
         gap: 8px;
-        margin-top: 12px;
+        margin-top: 17px;
 `
 
 const Block = styled.div`
     display: flex;
     align-items: center;
-    /* margin-top: 12px; */
+    margin-top: 12px;
 `
 
 const Media = styled.section`
@@ -27,17 +26,13 @@ const Media = styled.section`
 `
 
 const Badge = styled.span`
-    position: absolute;
-    right: 0;
-    bottom: -4px;
-
     & > svg {
-        color: #dea515;
+        color: #0846ff;
         font-size: small
     }
 `
 const IconButton = styled(MuiIconButton)`
-            background-color:#60677044 ;
+            background-color:#E4E6EB ;
             margin-right: 4px;
         `
 
@@ -49,17 +44,39 @@ const Flexbox = styled.div`
         `
 const BtnGroup = styled.div`
 `
+
+const Location = styled(Typography)`
+    font-size: small;
+    line-height: 1.2;
+    color: #505050;
+`
+
+const Content = styled(Box)`
+    display: flex;
+    flex-direction: column;
+`
+
+const Name = styled(Box)`
+    display: flex;
+    align-items: center;
+    gap: 4px;
+`
 function Actions() {
     return (
         <Container>
-            <Typography variant='subtitle1' color={"gray"}>Contact Agent</Typography>
+            <Typography variant='subtitle1' color={"#65676b"} >Contact property agent</Typography>
             <Flexbox>
                 <Block>
                     <Media>
                         <Avatar src="/profile.jpg" alt="tj" />
-                        <Badge><VerifiedRounded /></Badge>
                     </Media>
-                    <Typography variant='subtitle1' fontSize={"medium"}>Timothy T. Joe</Typography>
+                    <Content>
+                        <Name>
+                            <Typography variant='subtitle1' fontSize={"medium"} lineHeight={1}>Timothy T. Joe</Typography>
+                            <Badge><VerifiedRounded /></Badge>
+                        </Name>
+                        <Location variant="body">Location</Location>
+                    </Content>
                 </Block>
                 <BtnGroup>
                     <IconButton>
