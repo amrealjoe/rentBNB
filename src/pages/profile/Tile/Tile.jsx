@@ -18,6 +18,7 @@ const Container = styled(Box)`
 `
 function Tile(props) {
     const { agent } = props
+    
     return (
         <Container>
             <Slider />

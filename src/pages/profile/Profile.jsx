@@ -27,7 +27,7 @@ function Profile() {
     const capUsername = username.charAt(0).toUpperCase() + username.slice(1)
     const filteredUser = user.filter((item) => item.username == capUsername)
     setAgent(filteredUser[0])
-  }, [location])
+  }, [])
 
 
   return (

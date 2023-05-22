@@ -24,7 +24,8 @@ const TileRow = styled(Box)`
 `
 
 function Property(props) {
-  const {agent} = props
+  const { agent } = props
+  
   return (
     <Container>
       <Filter />
