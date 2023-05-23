@@ -47,8 +47,6 @@ const CardList = styled.div`
 
 `
 
-
-
 function Agents() {
     const { user } = useContext(withUser)
     const { flag } = useContext(withUtils)
@@ -60,7 +58,6 @@ function Agents() {
                     <Searcher />
                 </Header>
                 <CardList>
-
                     {
                         !flag && (
                             user.map((item) => (
@@ -69,7 +66,6 @@ function Agents() {
                         )
                     }
                 </CardList>
-
             </Container>
         </SlideUp >
 

@@ -36,7 +36,7 @@ function Marketplace() {
                 <Header>
                     <Typography
                         variant='h5'
-                        fontWeight={900}>Marketplace</Typography>
+                        fontWeight={900}>Properties</Typography>
                     <Filter />
                     <TileRow>
                         <Tile agent={user[0]} />

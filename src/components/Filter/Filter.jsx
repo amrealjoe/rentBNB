@@ -6,7 +6,7 @@ import MuiButton from "@mui/material/Button"
 import { Explore } from '@mui/icons-material'
 
 const Container = styled(Box)`
-    padding: 12px;
+    padding: 12px 0;
     position: sticky;
     display: flex;
     margin-bottom: 20px;
@@ -14,18 +14,16 @@ const Container = styled(Box)`
 
 const Button = styled(MuiButton)`
     text-transform: capitalize;
-    border-radius: 14px;
+    border-radius: 17px;
     background-color: #E4E6EB;
     color:#040404 ;
-    margin-right: 12px;
-
+    margin-right: 6px;
+    padding-left: 17px;
+    padding-right: 17px;
     &:hover {
     background-color: #E4E6EB;
     }
 
-    &:active {
-        background-color: #7c7c7c;
-    }
 `
 
 function Filter() {

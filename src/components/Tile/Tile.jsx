@@ -7,8 +7,8 @@ import Actions from './Actions'
 
 const Container = styled(Box)`
         margin: 2px;
-        min-width: 412px;
-        max-width: 412px;
+        min-width: 409px;
+        max-width: 409px;
         box-sizing: border-box;
         border-radius: 12px;
         padding: 8px;
