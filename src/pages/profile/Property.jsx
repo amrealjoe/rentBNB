@@ -3,8 +3,7 @@ import Tile from './Tile'
 import { Box } from '@mui/material'
 import styled from "@emotion/styled"
 import Filter from './Filter'
-import SlideUp from '@/Animations/SlideUp'
-
+import {SlideUp} from '@/Animations/SlideUp'
 
 const Container = styled(Box)`
     overflow-y: auto;
