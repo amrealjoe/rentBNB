@@ -57,8 +57,8 @@ const Name = styled(Box)`
     gap: 4px;
 `
 function Actions(props) {
-    const { agent } = useContext(withAgent)
-
+    const { agent } = props
+    
     return (
         <Container>
             <Typography variant='subtitle1' color={"#65676b"} >Contact property agent</Typography>

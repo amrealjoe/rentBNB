@@ -6,8 +6,8 @@ import { useLocation, useNavigate } from 'react-router-dom'
 
 const Pane = styled.aside`
     border-right: thin solid #E4E6EB;
-
-    min-height: 100vh;
+    max-height: 95vh;
+    height: 95vh;
     display: flex;
     flex-direction: column;
     padding: 8px;

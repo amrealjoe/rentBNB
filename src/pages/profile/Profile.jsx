@@ -17,7 +17,7 @@ const Container = styled(Grid)`
 
 function Profile() {
   const { user, getUserImage } = useContext(withUser)
-  const [agent, setAgent] = useState([])
+  const [agent, setAgent] = useState(user[0])
   const location = useLocation()
 
   useEffect(() => {

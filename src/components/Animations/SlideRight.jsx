@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from "framer-motion"
 
-function SlideRight({ children }) {
+export function SlideRight({ children }) {
     return (
         <motion.div
             initial={{ x: -30, opacity: 0 }}

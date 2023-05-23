@@ -1,24 +1,26 @@
 import { Typography } from '@mui/material'
 import React, { useContext } from 'react'
-import { styled } from 'styled-components'
-import Searcher from './services/Searcher'
+import styled from '@emotion/styled'
+import Searcher from './components/Searcher'
 import withUser from '@contexts/ProvideUser'
 import withUtils from '@contexts/ProvideUtils'
-import Card from './Card'
+import Card from './components/Card'
 import { SlideUp } from "@/Animations/SlideUp"
 
 const Container = styled.div`
-    padding: 14px;
     border-right: thin solid #E4E6EB;
+    overflow-y: auto;
+    max-height: 100vh;
     min-height: 100vh;
+    position: relative;
+    padding: 0 6px;
 `
 
 const Header = styled.section`
+    padding: 12px;
 `
 const Title = styled(Typography)`
-    && {
         font-weight: 900;
-    }
 `
 
 const CardList = styled.div`

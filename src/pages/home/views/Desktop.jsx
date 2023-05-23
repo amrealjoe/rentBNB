@@ -2,6 +2,7 @@ import React from 'react'
 import { Grid } from '@mui/material'
 import Agents from '@/Agents'
 import SidePane from '@/Panes/SidePane'
+import Marketplace from '@/Marketplace'
 
 function Desktop() {
 
@@ -14,7 +15,7 @@ function Desktop() {
                 <Agents />
             </Grid>
             <Grid item sm={8} md={8}>
-                Content Pane
+                <Marketplace />
             </Grid>
         </Grid>
     )

@@ -1,32 +1,32 @@
 import { SearchRounded } from '@mui/icons-material'
-import { InputAdornment, TextField } from '@mui/material'
+import { Box, InputAdornment, TextField } from '@mui/material'
 import React, { useContext, useRef, useState } from 'react'
-import { styled } from 'styled-components'
+import styled from '@emotion/styled'
 import withUser from '@contexts/ProvideUser'
 import withUtils from '@contexts/ProvideUtils'
-import Card from '../Card'
+import Card from './Card'
 
 
 const Container = styled.div`
-    margin: 12px;
+    margin-top: 12px;
     position: relative;
 `
 
 const Input = styled(TextField)`
 
-    && .MuiInputBase-root {
+    & .MuiInputBase-root {
         border-radius: 23px;
         background-color: #f3f3f5;
         border-color: transparent;
     }
 
-    && .MuiInputBase-root input {
+    & .MuiInputBase-root input {
         border-top-right-radius: 23px;
         border-bottom-right-radius: 23px;
         color: #50555a;
     }
 
-    && .MuiInputBase-root fieldset {
+    & .MuiInputBase-root fieldset {
         border-color: transparent;
     }
 `
@@ -35,8 +35,13 @@ const Section = styled.section`
     position: absolute;
     background-color: white;
     min-width: 100%;
-    min-height: 100vh;
+    min-height: 80vh;
+`
 
+const Review = styled(Box)`
+    display: flex;
+    gap: 4px;
+    padding: 6px 4px;
 `
 
 
@@ -86,6 +91,9 @@ function Searcher() {
             {
                 flag && (
                     <Section>
+                        <Review>
+                            <SearchRounded /> {searchQuery}
+                        </Review>
                         {searchResults.map((item) => (
                             <Card key={item.id} details={item} />
                         ))}

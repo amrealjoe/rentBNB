@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Tile from '@/Tile'
 import { Box } from '@mui/material'
 import styled from "@emotion/styled"
 import Filter from '@/Filter'
-import {SlideUp} from '@/Animations/SlideUp'
+import { SlideUp } from '@/Animations/SlideUp'
+import { withAgent } from './Profile'
 
 const Container = styled(Box)`
     overflow-y: auto;
@@ -24,16 +25,16 @@ const TileRow = styled(Box)`
 `
 
 function Property() {
-
+  const { agent } = useContext(withAgent)
   return (
     <SlideUp>
       <Container>
         <Filter />
         <TileRow>
-          <Tile />
-          <Tile />
-          <Tile />
-          <Tile />
+          <Tile agent={agent} />
+          <Tile agent={agent} />
+          <Tile agent={agent} />
+          <Tile agent={agent} />
         </TileRow>
       </Container>
     </SlideUp>
