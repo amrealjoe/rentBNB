@@ -1,12 +1,10 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import Tile from './Tile'
 import { Box } from '@mui/material'
 import styled from "@emotion/styled"
 import Filter from './Filter'
-import { withAgent } from './Profile'
-import FadeMotion from '@/Motion/Fade'
-import FastMotion from '@/Motion/Fast'
-import SlowMotion from '@/Motion/Slow'
+import SlideUp from '@/Animations/SlideUp'
+
 
 const Container = styled(Box)`
     overflow-y: auto;
@@ -26,11 +24,10 @@ const TileRow = styled(Box)`
   }
 `
 
-function Property(props) {
+function Property() {
 
   return (
-
-    <FadeMotion>
+    <SlideUp>
       <Container>
         <Filter />
         <TileRow>
@@ -40,7 +37,7 @@ function Property(props) {
           <Tile />
         </TileRow>
       </Container>
-    </FadeMotion>
+    </SlideUp>
   )
 }
 

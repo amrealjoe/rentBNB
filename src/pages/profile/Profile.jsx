@@ -6,10 +6,6 @@ import SidePane from '@/Panes/SidePane'
 import styled from "@emotion/styled"
 import withUser from "@contexts/ProvideUser"
 import { useLocation } from 'react-router-dom'
-import { motion } from "framer-motion"
-import FastMotion from '@/Motion/Fast'
-import SlowMotion from '@/Motion/Slow'
-import FadeMotion from '@/Motion/Fade'
 
 export const withAgent = createContext(null)
 
