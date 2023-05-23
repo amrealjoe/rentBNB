@@ -5,7 +5,11 @@ import Property from './Property'
 import SidePane from '@/Panes/SidePane'
 import styled from "@emotion/styled"
 import withUser from "@contexts/ProvideUser"
-import { useLocation, useSearchParams } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
+import { motion } from "framer-motion"
+import FastMotion from '@/Motion/Fast'
+import SlowMotion from '@/Motion/Slow'
+import FadeMotion from '@/Motion/Fade'
 
 export const withAgent = createContext(null)
 
@@ -26,7 +30,7 @@ function Profile() {
     const result = user.filter((item) => item.username === username)
     setAgent(result[0])
   }, [location])
-  const Values = { agent}
+  const Values = { agent }
 
 
   return (
@@ -39,11 +43,10 @@ function Profile() {
           <About />
         </Grid>
         <Grid item md={8}>
-          <Property />
+            <Property />
         </Grid>
       </Container>
-    </withAgent.Provider>
-
+    </withAgent.Provider >
   )
 }
 

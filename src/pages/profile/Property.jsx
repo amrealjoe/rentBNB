@@ -4,6 +4,9 @@ import { Box } from '@mui/material'
 import styled from "@emotion/styled"
 import Filter from './Filter'
 import { withAgent } from './Profile'
+import FadeMotion from '@/Motion/Fade'
+import FastMotion from '@/Motion/Fast'
+import SlowMotion from '@/Motion/Slow'
 
 const Container = styled(Box)`
     overflow-y: auto;
@@ -24,17 +27,20 @@ const TileRow = styled(Box)`
 `
 
 function Property(props) {
-  
+
   return (
-    <Container>
-      <Filter />
-      <TileRow>
-        <Tile />
-        <Tile />
-        <Tile />
-        <Tile />
-      </TileRow>
-    </Container>
+
+    <FadeMotion>
+      <Container>
+        <Filter />
+        <TileRow>
+          <Tile />
+          <Tile />
+          <Tile />
+          <Tile />
+        </TileRow>
+      </Container>
+    </FadeMotion>
   )
 }
 

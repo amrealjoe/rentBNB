@@ -5,6 +5,8 @@ import React, { useContext } from 'react'
 import styled from '@emotion/styled'
 import { withAgent } from './Profile'
 import Badge from '@/Badge'
+import { motion } from 'framer-motion'
+import SlowMotion from '../../components/Motion/Slow'
 
 const Container = styled.div`
     min-height: 100vh;
@@ -54,24 +56,28 @@ const NameWrapper = styled(Box)`
 `
 
 function About(props) {
-    const {agent} = useContext(withAgent)
-    
+    const { agent } = useContext(withAgent)
+
     return (
-        <Container>
-            <Image alt={agent?.name} />
-            <NameWrapper>
-                <Typography variant='subtitle1' fontSize={"large"}>{agent?.name}</Typography>
-                {
-                    agent?.verified && (<Badge size="large" />)
-                }
-            </NameWrapper>
-            <Info variant='body' fontSize={"medium"}>@{agent?.username}</Info><br />
-            <Info variant='body' fontSize={"medium"}>{agent?.id * agent?.id} Properties &#8226; Lives in {agent?.address?.city} </Info>
-            <Actions>
-                <Button color='primary' variant='contained' disableElevation endIcon={<TextsmsRounded />}>Send Text</Button>
-                <Button color='primary' variant='contained' disableElevation endIcon={<VideoCallRounded />}>Video Call </Button>
-            </Actions>
-        </Container>
+        <SlowMotion>
+            <Container>
+                <Image alt={agent?.name} />
+                <NameWrapper>
+                    <Typography variant='subtitle1' fontSize={"large"}>{agent?.name}</Typography>
+                    {
+                        agent?.verified && (<Badge size="large" />)
+                    }
+                </NameWrapper>
+                <Info variant='body' fontSize={"medium"}>@{agent?.username}</Info><br />
+                <Info variant='body' fontSize={"medium"}>{agent?.id * agent?.id} Properties &#8226; Lives in {agent?.address?.city} </Info>
+                <Actions>
+                    <Button color='primary' variant='contained' disableElevation endIcon={<TextsmsRounded />}>Send Text</Button>
+                    <Button color='primary' variant='contained' disableElevation endIcon={<VideoCallRounded />}>Video Call </Button>
+                </Actions>
+            </Container>
+        </SlowMotion>
+
+
     )
 }
 

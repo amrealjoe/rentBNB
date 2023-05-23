@@ -8,8 +8,8 @@ import { withAgent } from '../Profile'
 
 const Container = styled(Box)`
         margin: 2px;
-        min-width: 47%;
-        max-width: 47%;
+        min-width: 412px;
+        max-width: 412px;
         box-sizing: border-box;
         border-radius: 12px;
         padding: 8px;
@@ -18,7 +18,7 @@ const Container = styled(Box)`
 `
 function Tile(props) {
     // const { agent } = useContext(withAgent)
-    
+
     return (
         <Container>
             <Slider />
