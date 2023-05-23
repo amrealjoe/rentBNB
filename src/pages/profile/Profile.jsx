@@ -12,6 +12,7 @@ export const withAgent = createContext(null)
 const Container = styled(Grid)`
     max-height: 100vh;
     overflow: hidden;
+    position: relative;
 `
 
 function Profile() {

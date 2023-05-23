@@ -1,8 +1,8 @@
 import React from 'react'
-import Tile from './Tile'
+import Tile from '@/Tile'
 import { Box } from '@mui/material'
 import styled from "@emotion/styled"
-import Filter from './Filter'
+import Filter from '@/Filter'
 import {SlideUp} from '@/Animations/SlideUp'
 
 const Container = styled(Box)`

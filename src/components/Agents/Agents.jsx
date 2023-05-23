@@ -5,6 +5,7 @@ import Searcher from './services/Searcher'
 import withUser from '@contexts/ProvideUser'
 import withUtils from '@contexts/ProvideUtils'
 import Card from './Card'
+import { SlideUp } from "@/Animations/SlideUp"
 
 const Container = styled.div`
     padding: 14px;
@@ -50,23 +51,26 @@ function Agents() {
     const { user } = useContext(withUser)
     const { flag } = useContext(withUtils)
     return (
-        <Container>
-            <Header>
-                <Title variant='h5'>Agents</Title>
-                <Searcher />
-            </Header>
-            <CardList>
+        <SlideUp>
+            <Container>
+                <Header>
+                    <Title variant='h5'>Agents</Title>
+                    <Searcher />
+                </Header>
+                <CardList>
 
-                {
-                    !flag && (
-                        user.map((item) => (
-                            <Card key={item.id} details={item} />
-                        ))
-                    )
-                }
-            </CardList>
+                    {
+                        !flag && (
+                            user.map((item) => (
+                                <Card key={item.id} details={item} />
+                            ))
+                        )
+                    }
+                </CardList>
 
-        </Container>
+            </Container>
+        </SlideUp >
+
     )
 }
 

@@ -3,7 +3,7 @@ import { Avatar, Box, Typography } from '@mui/material'
 import MuiIconButton from '@mui/material/IconButton'
 import { TextsmsRounded, VideoCallRounded } from '@mui/icons-material'
 import styled from '@emotion/styled'
-import { withAgent } from '../Profile'
+import { withAgent } from '@pages/profile'
 import Badge from '@/Badge'
 
 const Container = styled(Box)`
