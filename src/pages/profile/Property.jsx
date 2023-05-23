@@ -31,6 +31,8 @@ function Property(props) {
       <TileRow>
         <Tile />
         <Tile />
+        <Tile />
+        <Tile />
       </TileRow>
     </Container>
   )

@@ -6,13 +6,14 @@ const Button = styled(IconButton)`
     display: flex;
     position: absolute;
     top: 45%;
-    background-color: #3f3e3e63;
+    background-color: #e1e1e162;
     ${props => props.direction === 'right' ? `right: 4px` : `left: 4px`};
     &:hover {
-        background-color: #2c2c2c82;
+        background-color: #e1e1e177;
     }
     & > svg {
-        font-size: medium
+        font-size: medium;
+        color: white
     }
 
  `

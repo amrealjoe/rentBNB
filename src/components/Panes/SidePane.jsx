@@ -43,7 +43,7 @@ function SidePane() {
     const [back, setBack] = useState(false)
     const location = useLocation()
     const navigate = useNavigate()
-    console.log(navigate)
+    
     useEffect(() => {
         if (location.pathname !== "/") {
             setBack(true)
@@ -52,7 +52,7 @@ function SidePane() {
     
     return (
         <Pane>
-            {back && (<Button onClick={() => navigate(-1)}><ArrowBack /></Button>)}
+            {/* {back && (<Button onClick={() => navigate(-1)}><ArrowBack /></Button>)} */}
             <Button onClick={() => navigate("/")}><Home  /><Dot /></Button>
             <Button><Notifications /></Button>
             <Button><Message /></Button>

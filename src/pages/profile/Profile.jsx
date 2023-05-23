@@ -23,18 +23,10 @@ function Profile() {
     const pathname = location.pathname.split("/")
     //get last element in the array
     const username = pathname.reverse()[0]
-    //capitalize first letter
-    const capUsername = username.charAt(0).toUpperCase() + username.slice(1)
-    const filteredUser = user.filter((item) => item.username == username)
-    //TODO: GET ACTUAL USER --- USER NOT DISPLAYING ERROR IS FROM HERE
-    console.log(filteredUser)
-    setAgent(filteredUser[0])
-  }, [location.pathname])
-  console.log(agent)
-  console.log(user)
-  const Values = {
-    agent
-  }
+    const result = user.filter((item) => item.username === username)
+    setAgent(result[0])
+  }, [location])
+  const Values = { agent}
 
 
   return (

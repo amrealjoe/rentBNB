@@ -1,10 +1,11 @@
 import { Avatar, Box, Tooltip, Typography } from '@mui/material'
 import MuiIconButton from '@mui/material/IconButton'
-import React from 'react'
-import { styled } from 'styled-components'
-import { ChatBubble, VerifiedRounded, VideoCall } from '@mui/icons-material'
+import React, { useContext } from 'react'
+import styled from '@emotion/styled'
+import { ChatBubble, VideoCall } from '@mui/icons-material'
 import { useNavigate } from 'react-router-dom'
-
+import Badge from '@/Badge'
+import withUser from '@contexts/ProvideUser'
 
 const Container = styled.section`
     display: flex;
@@ -41,9 +42,11 @@ const Actions = styled.section`
 `
 
 const IconButton = styled(MuiIconButton)`
-    && {
+    
         background-color: #dedddd;
-    }
+        background-color:#E4E6EB ;
+
+    
 `
 
 const Content = styled.section`
@@ -52,9 +55,9 @@ const Content = styled.section`
 `
 
 const Info = styled(Typography)`
-    && {
+    
         color: #606770;
-    }
+    
 `
 
 const Status = styled.span`
@@ -75,36 +78,17 @@ const ImageWrapper = styled.span`
 `
 
 const NameWrapper = styled(Box)`
-    && {
         display: flex;
         align-items: center;
-        gap: 6px
-    }
-    && svg {
-        font-size: small;
-        color: #dea515;
-    }
 `
+
 
 
 function Card(props) {
     const { details } = props
-    //TODO: Move to utils context
+    const { getUserImage } = useContext(withUser)
     const navigate = useNavigate()
-    const goto = (url) => {
-        let u = url.toLowerCase()
-        navigate(`agent/${u}`)
-    }
 
-    const fetchImage = async (userId) => {
-        try {
-            const response = await fetch(`https://jsonplaceholder.typicode.com/photos?albumId=${userId}`)
-            const data = await response.json()
-            return data[0].thumbnailUrl
-        } catch (error) {
-            return console.log(error)
-        }
-    };
 
     return (
         <Container key={details.id}
@@ -112,10 +96,10 @@ function Card(props) {
         >
             <Span onClick={(e) => {
                 e.stopPropagation()
-                goto(details.username)
+                navigate(`agent/${details.username}`)
             }}>
                 <ImageWrapper>
-                    <Avatar size="large" src={fetchImage(details.id)} alt={details.name} />
+                    <Avatar size="large" src={getUserImage(details.id)} alt={details.name} />
                     <Status />
                 </ImageWrapper>
                 <Content>
@@ -123,9 +107,7 @@ function Card(props) {
                         <Typography variant='subtitle1'> {details.name} </Typography>
                         {details.verified &&
                             (
-                                <Tooltip title="Verified">
-                                    <VerifiedRounded />
-                                </Tooltip>
+                                <Badge size={"small"} />
                             )
                         }
 

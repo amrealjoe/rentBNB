@@ -1,11 +1,10 @@
 import React, { useContext } from 'react'
-import { Avatar, Box, Card, Typography } from '@mui/material'
-import MuiButton from '@mui/material/Button'
+import { Avatar, Box, Typography } from '@mui/material'
 import MuiIconButton from '@mui/material/IconButton'
-import { TextsmsRounded, VideoCallRounded, VerifiedRounded } from '@mui/icons-material'
-import { Link } from "react-router-dom"
+import { TextsmsRounded, VideoCallRounded } from '@mui/icons-material'
 import styled from '@emotion/styled'
 import { withAgent } from '../Profile'
+import Badge from '@/Badge'
 
 const Container = styled(Box)`
         background-color: #F0F2F5;
@@ -26,12 +25,7 @@ const Media = styled.section`
     margin-right: 8px;
 `
 
-const Badge = styled.span`
-    & > svg {
-        color: #0846ff;
-        font-size: small
-    }
-`
+
 const IconButton = styled(MuiIconButton)`
             background-color:#E4E6EB ;
             margin-right: 4px;
@@ -76,7 +70,8 @@ function Actions(props) {
                     <Content>
                         <Name>
                             <Typography variant='subtitle1' fontSize={"medium"} lineHeight={1}>{agent?.name}</Typography>
-                            <Badge><VerifiedRounded /></Badge>
+                            {agent?.verified && (<Badge size="small" />)}
+                            
                         </Name>
                         <Location variant="body"> {agent?.id * agent?.id} Properties &#8226; {agent?.address?.city} </Location>
                     </Content>
