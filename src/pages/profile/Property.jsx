@@ -10,17 +10,18 @@ const Container = styled(Box)`
     overflow-y: auto;
     max-height: 100vh;
     position: relative;
+    padding: 12px;
 `
 
 const TileRow = styled(Box)`
     display: flex;
     align-items: initial;
     flex-wrap: wrap;
-    gap: 20px;
-    padding-left: 20px;
+    justify-content: space-evenly;
     
   & > * {
     flex: 3;
+    margin-bottom: 25px;
   }
 `
 
