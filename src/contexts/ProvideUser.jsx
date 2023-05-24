@@ -8,12 +8,13 @@ export function ProvideUser({ children }) {
     const [user, setUser] = useState(DemoUser);
     // const location = useLocation()
 
-    useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/users')
-            .then((response) => response.json())
-            .then((data) => setUser(data))
-            .catch((error) => console.log(error));
-    }, []);
+        //TODO: Fix data fetch from server
+    // useEffect(() => {
+    //     fetch('https://jsonplaceholder.typicode.com/users')
+    //         .then((response) => response.json())
+    //         .then((data) => setUser(data))
+    //         .catch((error) => console.log(error));
+    // }, []);
 
     const getUserImage = async (userId) => {
         try {
