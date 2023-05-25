@@ -2,7 +2,7 @@
 const express = require("express");
 const app = express();
 const server = require("http").Server(app);
-const port = process.env.PORT || 5051;
+const port = process.env.PORT || 4041;
 const Home = require("./routes/Home")
 
 //MIDDLEWARE

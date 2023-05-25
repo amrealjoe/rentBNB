@@ -41,10 +41,8 @@ const Actions = styled(Box)`
 `
 
 const Button = styled(MuiButton)`
-    
         text-transform: capitalize;
         border-radius: 17px;
-    
 `
 
 const NameWrapper = styled(Box)`

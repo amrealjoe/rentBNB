@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from '@emotion/styled'
 import { Box, Typography } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
+import { withModal } from '@contexts/ProvideModal'
 
 
 const Container = styled(Box)`
@@ -17,11 +18,10 @@ const Details = styled(Typography)`
 
 function Content() {
   const navigate = useNavigate()
+  const {openModal} = useContext(withModal)
   return (
     <Container
-      onClick={() => {
-        navigate("/somewhere")
-      }}
+      onClick={openModal}
     >
       <Typography variant='h6' >L$ 30 &#8226; 3 Bed Room Apartment...</Typography>
       <Details variant='body1' fontSize={"small"} color={"GrayText"}>For Rent &#8226; Location</Details>
