@@ -12,7 +12,7 @@ const TextBox = styled(Typography)`
 export function Body() {
     return (
         <Container>
-            <Typography variant='body1' fontSize={"small"} color={"GrayText"}>
+            <TextBox variant='body1' fontSize={"small"} color={"GrayText"}>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Nostrum magnam veniam aperiam molestiae doloribus saepe atque cupiditate
                 error velit doloribus saepe atque cupiditate error velit
@@ -27,7 +27,7 @@ export function Body() {
                 ullam, cum quia facilis odio!
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae commodi voluptatem, quis veritatis tenetur dolor sunt repudiandae hic illo sint quidem soluta voluptas reprehenderit mollitia nihil perferendis quasi natus? At.
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda non enim numquam quidem. Eaque laboriosam hic numquam cupiditate, consequuntur porro eum autem voluptate perspiciatis, maiores iste excepturi culpa, deserunt voluptatum.
-            </Typography>
+            </TextBox>
         </Container>
     )
 }
