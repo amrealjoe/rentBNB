@@ -6,12 +6,10 @@ import { useLocation, useNavigate } from 'react-router-dom'
 
 const Pane = styled.aside`
     border-right: thin solid #E4E6EB;
-    max-height: 95vh;
     height: 95vh;
     display: flex;
     flex-direction: column;
     padding: 8px;
-    gap: 8px;
 `
 
 const Dot = styled.span`
@@ -30,9 +28,10 @@ const Dot = styled.span`
 const Button = styled(MuiIconButton)`
     && {
         position: relative;
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
         background-color: #f8f6f6;
+        margin-bottom: 8px;
     }
     && > svg {
         font-size: 1.7rem;

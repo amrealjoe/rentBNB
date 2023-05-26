@@ -10,6 +10,8 @@ const Container = styled(Box)`
     position: sticky;
     display: flex;
     margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 4px
 `
 
 const Button = styled(MuiButton)`
@@ -30,13 +32,11 @@ function Filter() {
     return (
         <Container>
             <Button startIcon={<Explore />} >Discover</Button>
-            <Button>Recent</Button>
             <Button>For Rent</Button>
             <Button>For Lease</Button>
             <Button>For Sale</Button>
-            <Button>Rooms</Button>
+            <Button>Single Room</Button>
             <Button>Apartment</Button>
-            <Button>Price</Button>
         </Container>
     )
 }

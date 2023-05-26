@@ -17,8 +17,8 @@ const Container = styled.div`
 
 const Image = styled(Avatar)`
     
-        width: 300px;
-        height: 300px;
+        width: 200px;
+        height: 200px;
         margin: 0 auto;
         margin-bottom: 17px;
         font-size: 6rem;
@@ -58,7 +58,7 @@ function About(props) {
     return (
         <SlideRight>
             <Container>
-                <Image alt={agent?.name} />
+                <Image src='/profile.jpg' alt={agent?.name} />
                 <NameWrapper>
                     <Typography variant='subtitle1' fontSize={"large"}>{agent?.name}</Typography>
                     {agent?.verified && (<Badge size="large" />)}

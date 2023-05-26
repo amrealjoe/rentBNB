@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { Box } from '@mui/material'
 import React from 'react'
 
 
@@ -22,7 +23,11 @@ const Container = styled.div`
     min-width: 35px;
     padding:6px 8px ;
     border-radius: 17px;
-    left: 40%;
+    left: 44%;
+`
+
+const Content = styled(Box)`
+    
 `
 
 const Pagination = ({ slides, activeIndex }) => (

@@ -12,24 +12,17 @@ const Images = [
     "/img4.jpg",
 ]
 
-const Container = styled.div`
-    position: relative;
-    width: 395px ;
-    height: 244px;
-    overflow: hidden;
-    border-radius: 17px;
-    `
 
 const Content = styled.div`
     transform: translateX(-${props => props.translate}px);
     transition: transform ease-out ${props => props.transition}s;
-    height: 244px;
+    height: 100%;
     width: ${props => props.width}px;
     display: flex;
 `
 
 function Slider(props) {
-    const width = 395;
+    const {width} = props;
 
     const [state, setState] = useState({
         activeIndex: 0,
@@ -73,7 +66,7 @@ function Slider(props) {
     const { translate, transition, activeIndex } = state
 
     return (
-        <Container>
+        <>
             <Content
                 translate={translate}
                 transition={transition}
@@ -85,7 +78,7 @@ function Slider(props) {
             <Arrow direction={'left'} handleClick={prevSlide} />
             <Arrow direction={'right'} handleClick={nextSlide} />
             <Pagination slides={Images} activeIndex={activeIndex} />
-        </Container>
+        </>
     )
 }
 

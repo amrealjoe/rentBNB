@@ -1,17 +1,20 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { Box } from '@mui/material'
+import SliderShow from "@/Slider"
 
 const Container = styled(Box)`
-  border: solid #333;
+position: relative;
+  /* border: solid #333; */
   height: 90vh;
   margin-right: 12px;
   border-radius: 12px;
+  overflow: hidden;
 `
 export function Slider() {
   return (
     <Container>
-      PROPERTY IMAGE SLIDER WILL BE HERE
+      <SliderShow width={868} />
     </Container>
   )
 }
