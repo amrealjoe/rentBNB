@@ -56,12 +56,8 @@ function SidePane() {
 
     return (
         <Pane>
-            {
-                open && (<Notification ref={ref} />) 
-            }
-            <Button onClick={() => {
-                navigate("/")
-            }}><Home /></Button>
+            {open && (<Notification ref={ref} />) }
+            <Button onClick={() => { navigate("/")}}><Home /></Button>
             <Button onClick={toggleOpen}><Notifications /><Dot /></Button>
             <Button><Message /></Button>
             <Button><Person /></Button>
