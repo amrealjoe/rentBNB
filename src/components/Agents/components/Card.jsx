@@ -99,7 +99,7 @@ function Card(props) {
                 navigate(`agent/${details.username}`)
             }}>
                 <ImageWrapper>
-                    <Avatar size="large" src={getUserImage(details.id)} alt={details.name} />
+                    <Avatar size="large" src={"/profile.jpg"} alt={details.name} />
                     <Status />
                 </ImageWrapper>
                 <Content>

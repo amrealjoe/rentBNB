@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "start http://localhost:5051 && nodemon index",
+    "dev": "start http://localhost:4041 && nodemon index",
     "start": "nodemon index"
   },
   "keywords": [],

@@ -1,17 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef, useCallback } from 'react'
 import { styled } from 'styled-components'
 import MuiIconButton from "@mui/material/IconButton"
 import { HomeMaxRounded, ArrowBack, Home, Notifications, Message, Person } from '@mui/icons-material'
 import { useLocation, useNavigate } from 'react-router-dom'
+import Notification from './sidepane/Notification'
+import { useClickOutside } from '@react-hooks-library/core'
+
 
 const Pane = styled.aside`
     border-right: thin solid #E4E6EB;
-    max-height: 95vh;
     height: 95vh;
     display: flex;
     flex-direction: column;
     padding: 8px;
-    gap: 8px;
+    z-index: 1000;
 `
 
 const Dot = styled.span`
@@ -30,9 +32,10 @@ const Dot = styled.span`
 const Button = styled(MuiIconButton)`
     && {
         position: relative;
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
         background-color: #f8f6f6;
+        margin-bottom: 8px;
     }
     && > svg {
         font-size: 1.7rem;
@@ -43,18 +46,19 @@ function SidePane() {
     const [back, setBack] = useState(false)
     const location = useLocation()
     const navigate = useNavigate()
-    
-    useEffect(() => {
-        if (location.pathname !== "/") {
-            setBack(true)
-        }
-    }, [location])
-    
+    const [open, setOpen] = useState(false)
+    const toggleOpen = () => setOpen(!open)
+
+    const ref = useRef()
+    console.log(ref.current)
+    const handler = useCallback(() => { setOpen(false) }, [])
+    useClickOutside(ref, () => setOpen(false))
+
     return (
         <Pane>
-            {/* {back && (<Button onClick={() => navigate(-1)}><ArrowBack /></Button>)} */}
-            <Button onClick={() => navigate("/")}><Home  /><Dot /></Button>
-            <Button><Notifications /></Button>
+            {open && (<Notification ref={ref} />) }
+            <Button onClick={() => { navigate("/")}}><Home /></Button>
+            <Button onClick={toggleOpen}><Notifications /><Dot /></Button>
             <Button><Message /></Button>
             <Button><Person /></Button>
         </Pane>

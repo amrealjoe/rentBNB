@@ -1,12 +1,12 @@
-import React, { useCallback, useEffect, useState } from 'react'
-import { BrowserRouter as Router, Outlet } from "react-router-dom"
+import React, { useEffect, useState } from 'react'
+import { BrowserRouter as Router } from "react-router-dom"
 import { ThemeProvider, createTheme } from '@mui/material'
 import Routers from './Routers'
 import MuiSnackbar from '@mui/material/Snackbar';
 import { useOnline } from '@react-hooks-library/core';
 import styled from '@emotion/styled';
 import { Alert } from "@mui/material"
-import { NetworkCell } from '@mui/icons-material';
+import Modal from '@/Modal';
 
 const theme = createTheme({})
 
@@ -47,6 +47,7 @@ function App() {
           You're currently offline
         </Alert>
       </Snackbar>
+      <Modal />
     </ThemeProvider>
   )
 }

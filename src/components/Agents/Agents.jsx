@@ -6,21 +6,22 @@ import withUser from '@contexts/ProvideUser'
 import withUtils from '@contexts/ProvideUtils'
 import Card from './components/Card'
 import { SlideUp } from "@/Animations/SlideUp"
+import { SlideRight } from "@/Animations/SlideRight"
 
 const Container = styled.div`
+    position: relative;
     border-right: thin solid #E4E6EB;
     overflow-y: auto;
-    max-height: 100vh;
-    min-height: 100vh;
-    position: relative;
-    padding: 0 6px;
+    height: 100vh;
 `
 
 const Header = styled.section`
-    padding: 12px;
+        padding: 8px ;
+
 `
 const Title = styled(Typography)`
         font-weight: 900;
+        box-sizing: border-box;
 `
 
 const CardList = styled.div`
@@ -51,7 +52,7 @@ function Agents() {
     const { user } = useContext(withUser)
     const { flag } = useContext(withUtils)
     return (
-        <SlideUp>
+        <SlideRight>
             <Container>
                 <Header>
                     <Title variant='h5'>Agents</Title>
@@ -67,7 +68,7 @@ function Agents() {
                     }
                 </CardList>
             </Container>
-        </SlideUp >
+        </SlideRight >
 
     )
 }
