@@ -1,10 +1,9 @@
 import React from 'react'
 import { Grid } from '@mui/material'
 import SidePane from '@/Panes/SidePane'
-import Marketplace from '../Marketplace'
-import Agents from '../Agents'
+import Messages from '../components/messages'
 
-function Desktop() {
+export function Desktop() {
 
     return (
         <Grid container>
@@ -12,13 +11,11 @@ function Desktop() {
                 <SidePane />
             </Grid>
             <Grid item sm={4} md={3.4}>
-                <Agents />
+                <Messages />
             </Grid>
             <Grid item sm={8} md={8}>
-                <Marketplace />
+                Chat center
             </Grid>
         </Grid>
     )
 }
-
-export default Desktop
