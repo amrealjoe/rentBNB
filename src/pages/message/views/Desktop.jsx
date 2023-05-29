@@ -1,6 +1,7 @@
 import React from 'react'
 import { Grid } from '@mui/material'
 import SidePane from '@/Panes/SidePane'
+import Messages from '../components/messages'
 
 export function Desktop() {
 
@@ -10,7 +11,7 @@ export function Desktop() {
                 <SidePane />
             </Grid>
             <Grid item sm={4} md={3.4}>
-                Messages
+                <Messages />
             </Grid>
             <Grid item sm={8} md={8}>
                 Chat center

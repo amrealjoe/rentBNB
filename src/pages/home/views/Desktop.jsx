@@ -1,8 +1,8 @@
 import React from 'react'
 import { Grid } from '@mui/material'
-import Agents from '@/Agents'
 import SidePane from '@/Panes/SidePane'
-import Marketplace from '@/Marketplace'
+import Marketplace from '../Marketplace'
+import Agents from '../Agents'
 
 function Desktop() {
 

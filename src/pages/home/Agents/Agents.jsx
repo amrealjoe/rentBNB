@@ -31,7 +31,7 @@ const CardList = styled.div`
     overflow-y: auto;
 
     &::-webkit-scrollbar {
-        width: 7px;
+        width: 8px;
     }
 
     &::-webkit-scrollbar-track {
@@ -39,11 +39,11 @@ const CardList = styled.div`
     }
 
     &::-webkit-scrollbar-thumb {
-        background-color: #e8e8e8c5;
+        background-color: #808080;
         border-radius: 10px;
     }
     &::-webkit-scrollbar-thumb:hover {
-        background-color: #d7d6d6e2;
+        background-color: #949393
     }
 
 `
