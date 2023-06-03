@@ -49,7 +49,9 @@ function SidePane() {
     const [open, setOpen] = useState(false)
     const toggleOpen = () => setOpen(!open)
 
+    //TODO: Close notification pane if outside is clicked
     const ref = useRef()
+    //TODO: REMOVE LOG
     console.log(ref.current)
     const handler = useCallback(() => { setOpen(false) }, [])
     useClickOutside(ref, () => setOpen(false))
@@ -58,7 +60,6 @@ function SidePane() {
         <Pane>
             {open && (<Notification ref={ref} />) }
             <Button onClick={() => { navigate("/")}}><Home /></Button>
-            <Button onClick={toggleOpen}><Notifications /><Dot /></Button>
             <Button onClick={() => { navigate("/message") }} ><Message /></Button>
             <Button><Person /></Button>
         </Pane>
