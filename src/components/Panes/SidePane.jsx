@@ -1,10 +1,8 @@
-import React, { useEffect, useState, useRef, useCallback } from 'react'
+import React, {  } from 'react'
 import { styled } from 'styled-components'
 import MuiIconButton from "@mui/material/IconButton"
-import { HomeMaxRounded, ArrowBack, Home, Notifications, Message, Person } from '@mui/icons-material'
+import { Home, Message, Person } from '@mui/icons-material'
 import { useLocation, useNavigate } from 'react-router-dom'
-import Notification from './sidepane/Notification'
-import { useClickOutside } from '@react-hooks-library/core'
 
 
 const Pane = styled.aside`
@@ -36,6 +34,7 @@ const Button = styled(MuiIconButton)`
         height: 40px;
         background-color: #f8f6f6;
         margin-bottom: 8px;
+        border-radius: 12px;
     }
     && > svg {
         font-size: 1.7rem;
@@ -45,7 +44,6 @@ const Button = styled(MuiIconButton)`
 function SidePane() {
     const location = useLocation()
     const navigate = useNavigate()
-
 
     return (
         <Pane>

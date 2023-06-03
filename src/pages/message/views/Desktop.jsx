@@ -8,7 +8,7 @@ export function Desktop() {
 
     return (
         <Grid container>
-            <Grid item md={.6}>
+            <Grid item md={.5}>
                 <SidePane />
             </Grid>
             <Grid item sm={4} md={3}>
