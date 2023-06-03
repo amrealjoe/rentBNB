@@ -15,7 +15,7 @@ export function Desktop() {
             <Grid item sm={4} md={3}>
                 <Messages />
             </Grid>
-            <Grid item sm={8} md={5}>
+            <Grid item sm={8} md={5.4}>
                 <Chat />
             </Grid>
             <Grid item sm={8} md={3}>
