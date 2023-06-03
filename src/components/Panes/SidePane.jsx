@@ -27,7 +27,7 @@ const Dot = styled.span`
 
 `
 
-const Button = styled(MuiIconButton)`
+const Tab = styled(MuiIconButton)`
     && {
         position: relative;
         width: 40px;
@@ -47,9 +47,9 @@ function SidePane() {
 
     return (
         <Pane>
-            <Button onClick={() => { navigate("/")}}><Home /></Button>
-            <Button onClick={() => { navigate("/message") }} ><Message /></Button>
-            <Button><Person /></Button>
+            <Tab onClick={() => { navigate("/")}}><Home /></Tab>
+            <Tab onClick={() => { navigate("/message") }} ><Message /></Tab>
+            <Tab><Person /></Tab>
         </Pane>
     )
 }
