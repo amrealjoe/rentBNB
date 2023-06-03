@@ -1,12 +1,19 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import MuiIconButton from '@mui/material/IconButton'
 import styled from '@emotion/styled'
 import { VideoCallRounded } from '@mui/icons-material'
-import { Box, Typography } from '@mui/material'
+import { Box, Button, Typography } from '@mui/material'
+import Frame from './components/Frame'
+import { withMsg } from '@contexts/ProvideMsg'
+import { SlideUp } from "@/Animations/SlideUp"
 
 const Container = styled(Box)`
-    width: 100%;
     height: 98vh;
+    width: 100%;
+`
+
+const Grid = styled(Box)`
+    height: 100%;
     display: grid;
     place-items: center;
     align-content: center;
@@ -30,13 +37,25 @@ const Textbox = styled(Typography)`
 `
 
 function VideoCall() {
+    const { open, handleOpen } = useContext(withMsg)
+
     return (
-        <Container>
-            <Textbox variant='h5' >Start a video call</Textbox>
-            <IconButton>
-                <VideoCallRounded />
-            </IconButton>
-        </Container>
+        <SlideUp>
+            <Container>
+                {
+                    open ?
+                        <Frame />
+                        :
+                        <Grid>
+                            <Textbox variant='h5' >Start a video call</Textbox>
+                            <IconButton onClick={handleOpen}>
+                                <VideoCallRounded />
+                            </IconButton>
+                        </Grid>
+                }
+            </Container>
+        </SlideUp>
+
     )
 }
 
