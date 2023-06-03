@@ -3,6 +3,7 @@ import { Grid } from '@mui/material'
 import SidePane from '@/Panes/SidePane'
 import Messages from '../components/people'
 import Chat from '../components/chat'
+import VideoCall from '../components/videocall'
 
 export function Desktop() {
 
@@ -18,7 +19,7 @@ export function Desktop() {
                 <Chat />
             </Grid>
             <Grid item sm={8} md={3}>
-                Property
+                <VideoCall />
             </Grid>
         </Grid>
     )
