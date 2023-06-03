@@ -28,9 +28,7 @@ function Header() {
                 <Avatar src='/profile2.jpg' alt='TJ' />
                 <Typography variant='h6' fontWeight={900}>Username</Typography>
             </Media>
-            <IconButton>
-                <VideoCallRounded />
-            </IconButton>
+            
         </Rowbox>
     )
 }
