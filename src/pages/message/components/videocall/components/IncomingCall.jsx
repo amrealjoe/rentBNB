@@ -1,5 +1,26 @@
 import React, { useState } from 'react'
-import { Button, Backdrop, CircularProgress, useTheme, Paper } from "@mui/material"
+import { Button, Backdrop, CircularProgress, Paper } from "@mui/material"
+import styled from '@emotion/styled'
+import MuiIconButton from "@mui/material/IconButton"
+import MuiAvatar from "@mui/material/Avatar"
+
+
+const Container = styled(Paper)`
+    /* background-color: blue; */
+    box-shadow: unset;
+    /* width: 300px;
+    height: 300px; */
+`
+const Avatar = styled(MuiAvatar)`
+    width: 68px;
+    height: 68px;
+`
+
+const IconButton = styled(MuiIconButton)`
+    background-color: ${props => props.color};
+    width: 35px;
+    height: 35px;
+`
 
 function IncomingCall() {
     const [open, setOpen] = useState(false)
@@ -14,14 +35,9 @@ function IncomingCall() {
                 open={open}
                 onClick={handleClose}
             >
-                <Paper
-                    sx={{
-                        width: 500,
-                        height: 250
-                    }}
-                >
+                <Container>
                     <CircularProgress color="inherit" />
-                </Paper>
+                </Container>
             </Backdrop>
         </>
     )
