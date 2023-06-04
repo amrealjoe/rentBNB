@@ -45,7 +45,7 @@ function Frame() {
 
     return (
         <Container>
-            <Ringing>Ringing...</Ringing>
+            <Ringing>Connecting...</Ringing>
             <InFrame />
             <Footer>
                 <IconButton onClick={handleOpen}>
