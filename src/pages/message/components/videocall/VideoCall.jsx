@@ -6,6 +6,7 @@ import { Box, Button, Typography } from '@mui/material'
 import Frame from './components/Frame'
 import { withMsg } from '@contexts/ProvideMsg'
 import { SlideUp } from "@/Animations/SlideUp"
+import IncomingCall from './components/IncomingCall'
 
 const Container = styled(Box)`
     height: 98vh;
@@ -42,6 +43,7 @@ function VideoCall() {
     return (
         <SlideUp>
             <Container>
+                <IncomingCall />
                 {
                     open ?
                         <Frame />
