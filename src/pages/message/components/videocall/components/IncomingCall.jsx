@@ -8,37 +8,38 @@ import { CallEndRounded, PhoneLocked } from '@mui/icons-material'
 
 const Container = styled(Paper)`
     box-shadow: unset;
+    background-color: #ffffff34;
     display: flex;
     flex-direction: column;
     min-width: 250px;
     text-align: center;
     padding: 12px 0;
+    border-radius: 11px;
 `
 
 const Avatar = styled(MuiAvatar)`
     width: 68px;
     height: 68px;
     margin: 0 auto;
+    margin-bottom: 12px;
 `
 
 const FlexBox = styled(Box)`
     display: flex;
     gap: 12px;
     margin-top: 12px;
-    border: solid red;
     justify-content: center;
+    align-items: center;
 `
 
 
 const SmallButton = styled(MuiIconButton)`
     width: 50px;
     height: 50px;
-    background-color: #d3d2d2;
+    background-color: #cacaca7b;
     &:hover {
-        background-color: #d3d2d2;
+        background-color: #cacaca7b;
     }
-    
-    
 `
 const BigButton = styled(SmallButton)`
     width: 70px;
@@ -65,8 +66,8 @@ function IncomingCall() {
             >
                 <Container>
                     <Avatar src={"/picture.jpg"} alt='Jim Jallah' />
-                    <Typography variant='h5' fontWeight={"normal"} >Jim Jallah</Typography>
-                    <Typography variant='body1' fontWeight={"normal"} color={"GrayText"}>Incoming call...</Typography>
+                    <Typography variant='h5' fontWeight={"normal"} color={"InfoText"} >Jim Jallah</Typography>
+                    <Typography variant='body1' fontWeight={"normal"} color={"MenuText"}>Incoming call</Typography>
                     <FlexBox>
                         <SmallButton
                             onClick={handleClose}
