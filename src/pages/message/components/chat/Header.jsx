@@ -26,7 +26,7 @@ function Header() {
         <Rowbox>
             <Media>
                 <Avatar src='/profile2.jpg' alt='TJ' />
-                <Typography variant='h6' fontWeight={900}>Username</Typography>
+                <Typography variant='h6' fontWeight={900}>Lydia Lydia</Typography>
             </Media>
             
         </Rowbox>
