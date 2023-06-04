@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Backdrop, CircularProgress, useTheme } from "@mui/material"
+import { Button, Backdrop, CircularProgress, useTheme, Paper } from "@mui/material"
 
 function IncomingCall() {
     const [open, setOpen] = useState(false)
@@ -14,7 +14,14 @@ function IncomingCall() {
                 open={open}
                 onClick={handleClose}
             >
-                <CircularProgress color="inherit" />
+                <Paper
+                    sx={{
+                        width: 500,
+                        height: 250
+                    }}
+                >
+                    <CircularProgress color="inherit" />
+                </Paper>
             </Backdrop>
         </>
     )
