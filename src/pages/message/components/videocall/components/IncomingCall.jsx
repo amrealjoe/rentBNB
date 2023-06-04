@@ -62,16 +62,13 @@ function IncomingCall() {
             <Backdrop
                 sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
                 open={open}
-                // onClick={handleClose}
             >
                 <Container>
                     <Avatar src={"/picture.jpg"} alt='Jim Jallah' />
                     <Typography variant='h5' fontWeight={"normal"} color={"InfoText"} >Jim Jallah</Typography>
                     <Typography variant='body1' fontWeight={"normal"} color={"MenuText"}>Incoming call</Typography>
                     <FlexBox>
-                        <SmallButton
-                            onClick={handleClose}
-                            color='error'>
+                        <SmallButton onClick={handleClose} color='error'>
                             <PhoneLocked />
                         </SmallButton>
                         <BigButton color='success' size='large'>
