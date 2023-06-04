@@ -3,30 +3,52 @@ import { Button, Backdrop, Paper, useTheme, Typography, Box} from "@mui/material
 import styled from '@emotion/styled'
 import MuiIconButton from "@mui/material/IconButton"
 import MuiAvatar from "@mui/material/Avatar"
-import { PhoneAndroidSharp, PhoneIphone } from '@mui/icons-material'
+import { CallEndRounded, PhoneLocked } from '@mui/icons-material'
 
 
 const Container = styled(Paper)`
-    /* background-color: blue; */
     box-shadow: unset;
-    /* width: 300px;
-    height: 300px; */
+    display: flex;
+    flex-direction: column;
+    min-width: 250px;
+    text-align: center;
+    padding: 12px 0;
 `
+
 const Avatar = styled(MuiAvatar)`
     width: 68px;
     height: 68px;
-`
-
-const IconButton = styled(MuiIconButton)`
-    background-color: ${props => props.color};
-    width: 35px;
-    height: 35px;
+    margin: 0 auto;
 `
 
 const FlexBox = styled(Box)`
     display: flex;
-    flex-direction: column;
+    gap: 12px;
+    margin-top: 12px;
+    border: solid red;
+    justify-content: center;
 `
+
+
+const SmallButton = styled(MuiIconButton)`
+    width: 50px;
+    height: 50px;
+    background-color: #d3d2d2;
+    &:hover {
+        background-color: #d3d2d2;
+    }
+    
+    
+`
+const BigButton = styled(SmallButton)`
+    width: 70px;
+    height: 70px;
+    & > svg {
+        font-size: 2.75rem;
+    }
+`
+
+
 
 function IncomingCall() {
     const [open, setOpen] = useState(false)
@@ -42,16 +64,18 @@ function IncomingCall() {
                 // onClick={handleClose}
             >
                 <Container>
-                    <Avatar src='/picture.jpg' alt='Jim Jallah' />
-                    <Typography variant='h5' fontWeight={"normal"}>Rose Garteh</Typography>
-                    <Typography variant='h6' fontWeight={"normal"}>Incoming call...</Typography>
+                    <Avatar src={"/picture.jpg"} alt='Jim Jallah' />
+                    <Typography variant='h5' fontWeight={"normal"} >Jim Jallah</Typography>
+                    <Typography variant='body1' fontWeight={"normal"} color={"GrayText"}>Incoming call...</Typography>
                     <FlexBox>
-                        <IconButton color='blue'>
-                            <PhoneAndroidSharp />
-                        </IconButton>
-                        <IconButton color='primary'>
-                            <PhoneIphone />
-                        </IconButton>
+                        <SmallButton
+                            onClick={handleClose}
+                            color='error'>
+                            <PhoneLocked />
+                        </SmallButton>
+                        <BigButton color='success' size='large'>
+                            <CallEndRounded />
+                        </BigButton>
                     </FlexBox>
                 </Container>
             </Backdrop>
