@@ -38,24 +38,24 @@ const Textbox = styled(Typography)`
 `
 
 function VideoCall() {
-    const { open, handleOpen } = useContext(withMsg)
+    const { open, handleOpen, handleToggle } = useContext(withMsg)
 
     return (
         <SlideUp>
             <Container>
-                <IncomingCall />
                 {
                     open ?
                         <Frame />
                         :
                         <Grid>
                             <Textbox variant='h5' >Start a video call</Textbox>
-                            <IconButton onClick={handleOpen}>
+                            <IconButton onClick={handleToggle}>
                                 <VideoCallRounded />
                             </IconButton>
                         </Grid>
                 }
             </Container>
+            <IncomingCall />
         </SlideUp>
 
     )

@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Button, Backdrop, Paper, useTheme, Typography, Box} from "@mui/material"
 import styled from '@emotion/styled'
 import MuiIconButton from "@mui/material/IconButton"
 import MuiAvatar from "@mui/material/Avatar"
 import { CallEndRounded, PhoneLocked } from '@mui/icons-material'
+import { withMsg } from '@contexts/ProvideMsg'
 
 
 const Container = styled(Paper)`
@@ -52,16 +53,14 @@ const BigButton = styled(SmallButton)`
 
 
 function IncomingCall() {
-    const [open, setOpen] = useState(false)
-    const theme = useTheme()
-    const handleToggle = () => setOpen(!open)
-    const handleClose = () => setOpen(false)
+    const { toggle, handleClose, handleOpen } = useContext(withMsg);
+
     return (
         <>
-            <Button onClick={handleToggle}>Show backdrop</Button>
+            {/* <Button onClick={handleToggle}>Show backdrop</Button> */}
             <Backdrop
                 sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-                open={open}
+                open={toggle}
             >
                 <Container>
                     <Avatar src={"/picture.jpg"} alt='Jim Jallah' />
@@ -71,7 +70,10 @@ function IncomingCall() {
                         <SmallButton onClick={handleClose} color='error'>
                             <PhoneLocked />
                         </SmallButton>
-                        <BigButton color='success' size='large'>
+                        <BigButton onClick={() => {
+                            handleOpen()
+                            handleClose()
+                        }} color='success' size='large'>
                             <CallEndRounded />
                         </BigButton>
                     </FlexBox>
