@@ -5,7 +5,7 @@ function ProvideMsg({ children }) {
   const [open, setOpen] = useState(false)
   const [toggle, setToggle] = useState(false)
   const handleOpen = () => setOpen(!open)
-  const handleToggle = () => setOpen(!toggle)
+  const handleToggle = () => setToggle(!toggle)
   const handleClose = () => setToggle(false)
 
   const VALUES = {

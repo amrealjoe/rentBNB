@@ -44,15 +44,15 @@ function Frame() {
     const { handleOpen } = useContext(withMsg)
 
     return (
-            <Container>
-                <Ringing>Ringing...</Ringing>
-                <InFrame />
-                <Footer>
-                    <IconButton onClick={handleOpen}>
-                        <CallEndRounded />
-                    </IconButton>
-                </Footer>
-            </Container>
+        <Container>
+            <Ringing>Ringing...</Ringing>
+            <InFrame />
+            <Footer>
+                <IconButton onClick={handleOpen}>
+                    <CallEndRounded />
+                </IconButton>
+            </Footer>
+        </Container>
     )
 }
 

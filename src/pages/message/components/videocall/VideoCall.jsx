@@ -38,7 +38,7 @@ const Textbox = styled(Typography)`
 `
 
 function VideoCall() {
-    const { open, handleOpen, handleToggle } = useContext(withMsg)
+    const { open, handleToggle } = useContext(withMsg)
 
     return (
         <SlideUp>
