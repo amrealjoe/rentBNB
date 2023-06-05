@@ -1,10 +1,8 @@
-import React, { useEffect, useState, useRef, useCallback } from 'react'
+import React, {  } from 'react'
 import { styled } from 'styled-components'
 import MuiIconButton from "@mui/material/IconButton"
-import { HomeMaxRounded, ArrowBack, Home, Notifications, Message, Person } from '@mui/icons-material'
+import { Home, Message, Person } from '@mui/icons-material'
 import { useLocation, useNavigate } from 'react-router-dom'
-import Notification from './sidepane/Notification'
-import { useClickOutside } from '@react-hooks-library/core'
 
 
 const Pane = styled.aside`
@@ -29,13 +27,14 @@ const Dot = styled.span`
 
 `
 
-const Button = styled(MuiIconButton)`
+const Tab = styled(MuiIconButton)`
     && {
         position: relative;
         width: 40px;
         height: 40px;
         background-color: #f8f6f6;
         margin-bottom: 8px;
+        border-radius: 12px;
     }
     && > svg {
         font-size: 1.7rem;
@@ -43,24 +42,14 @@ const Button = styled(MuiIconButton)`
     }
 `
 function SidePane() {
-    const [back, setBack] = useState(false)
     const location = useLocation()
     const navigate = useNavigate()
-    const [open, setOpen] = useState(false)
-    const toggleOpen = () => setOpen(!open)
-
-    const ref = useRef()
-    console.log(ref.current)
-    const handler = useCallback(() => { setOpen(false) }, [])
-    useClickOutside(ref, () => setOpen(false))
 
     return (
         <Pane>
-            {open && (<Notification ref={ref} />) }
-            <Button onClick={() => { navigate("/")}}><Home /></Button>
-            <Button onClick={toggleOpen}><Notifications /><Dot /></Button>
-            <Button onClick={() => { navigate("/message") }} ><Message /></Button>
-            <Button><Person /></Button>
+            <Tab onClick={() => { navigate("/")}}><Home /></Tab>
+            <Tab onClick={() => { navigate("/message") }} ><Message /></Tab>
+            <Tab><Person /></Tab>
         </Pane>
     )
 }
